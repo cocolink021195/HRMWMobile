@@ -1,0 +1,42 @@
+<ons-toolbar>
+  <div class="left">
+    <ons-toolbar-button (click)="eventOpenMenu()">
+      <ons-icon icon="ion-ios-menu, material:md-menu"></ons-icon>
+    </ons-toolbar-button>
+  </div>
+  <div class="center">Hệ Thống Phản Hồi</div>
+  <div class="right">
+    <ons-toolbar-button>
+      <ons-icon icon="md-refresh"></ons-icon>
+    </ons-toolbar-button>
+  </div>
+</ons-toolbar>
+
+<ons-page>
+  <div class="content">
+    <div class="function">
+      <button (click)="eventOnPushAddNew()">Add New</button>
+
+
+      <ng-container *ngFor="let item of listFunction">
+        <ng-container *ngIf="item && item.Functions && item.Functions[0]">
+          <div class="function-head">
+            <ons-icon class="fsap fsap-outbox"></ons-icon>
+            <div class="title" [ngStyle]="{'color': item?.Color}">{{item?.Header || "&nbsp;"}}</div>
+          </div>
+          <div class="function-body">
+            <ng-container *ngFor="let itemSmall of item.Functions">
+              <div class="function-body__card">
+                <div class="description">{{itemSmall?.Title}}</div>
+                <div class="title">
+                  <div class="number" [ngStyle]="{'color': item?.Color}">{{itemSmall?.Number}}</div>
+                  <ons-icon class="{{itemSmall?.Icon}}"></ons-icon>
+                </div>
+              </div>
+            </ng-container>
+          </div>
+        </ng-container>
+      </ng-container>
+    </div>
+  </div>
+</ons-page>

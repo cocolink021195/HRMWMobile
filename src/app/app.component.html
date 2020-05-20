@@ -1,0 +1,14 @@
+<ons-splitter #splitter>
+  <ons-splitter-side [page]="sideBar" side="left" width="260px" collapse swipeable>
+  </ons-splitter-side>
+
+  <ons-splitter-content>
+    <ons-navigator [page]="contentPage">
+      <router-outlet></router-outlet>
+    </ons-navigator>
+  </ons-splitter-content>
+</ons-splitter>
+
+<ons-modal direction="up" #screenLoading>
+  <ons-progress-circular indeterminate></ons-progress-circular>
+</ons-modal>
