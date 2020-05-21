@@ -11,13 +11,38 @@
   <div class="content">
     <div class="search-bar">
       <ons-search-input placeholder="Search"></ons-search-input>
-      <ons-icon class="filter" icon="fa-sliders-h"></ons-icon>
+      <ons-icon class="filter" icon="fa-sliders-h" (click)="modalFilter.show()"></ons-icon>
     </div>
 
     <div class="list-content">
       <ons-list class="bg-img--none">
 
         <!-- LIST  -->
+        <ons-list-item class="list-item">
+          <div class="center">
+            <div class="row grid">
+              <div class="t-center">
+                <img src="../../../assets/img/NONAL.png">
+              </div>
+              <div class="t-ellipsis">
+                <div class="row">
+                  <b>
+                    Lorem Ipsum
+                  </b>
+                </div>
+                <div class="row">
+                  Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
+                  industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and
+                  scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap
+                  into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the
+                  release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing
+                  software like Aldus PageMaker including versions of Lorem Ipsum.
+                </div>
+              </div>
+            </div>
+          </div>
+        </ons-list-item>
+
         <ons-list-item class="list-item">
           <div class="center">
             <div class="row grid">
@@ -61,3 +86,29 @@
 </ons-page>
 
 <!-- MODAL -->
+<ons-alert-dialog animation="default" cancelable #modalFilter>
+  <div class="alert-dialog-title"> Lọc dữ liệu </div>
+  <div class="alert-dialog-content">
+    <mat-form-field>
+      <mat-label>Combobox</mat-label>
+      <mat-select></mat-select>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Combobox</mat-label>
+      <mat-select></mat-select>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Combobox</mat-label>
+      <mat-select></mat-select>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Combobox</mat-label>
+      <mat-select></mat-select>
+    </mat-form-field>
+  </div>
+  <div class="alert-dialog-footer">
+    <button>Bỏ lọc</button>
+    <button>Chọn</button>
+    <button>Huỷ</button>
+  </div>
+</ons-alert-dialog>

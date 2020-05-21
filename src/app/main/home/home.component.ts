@@ -3,6 +3,9 @@ import { NavigatorService } from 'src/app/core/services/navigator.service';
 import { OnsNavigator } from 'ngx-onsenui';
 import { ListComponent } from '../list/list.component';
 import { AddSendFeedbackComponent } from 'src/app/modules/feedback-system/send-feedback/add-send-feedback/add-send-feedback.component';
+import { ReviewSendFeedbackComponent } from 'src/app/modules/feedback-system/send-feedback/review-send-feedback/review-send-feedback.component';
+import { AddRequestFeedbackComponent } from 'src/app/modules/feedback-system/request-feedback/add-request-feedback/add-request-feedback.component';
+import { DetailRequestFeedbackComponent } from 'src/app/modules/feedback-system/request-feedback/detail-request-feedback/detail-request-feedback.component';
 
 @Component({
   selector: 'ons-page[home]',
@@ -56,7 +59,23 @@ export class HomeComponent implements OnInit {
     this.navigatorService.myMenu();
   }
 
+  eventOnPushList() {
+    this.navigator.element.pushPage(ListComponent);
+  }
+
   eventOnPushAddNew() {
     this.navigator.element.pushPage(AddSendFeedbackComponent);
+  }
+
+  eventOnPushReview() {
+    this.navigator.element.pushPage(ReviewSendFeedbackComponent);
+  }
+
+  eventOnPushAddRequestFeedback() {
+    this.navigator.element.pushPage(AddRequestFeedbackComponent);
+  }
+
+  eventOnPushDetailRequestFeedback() {
+    this.navigator.element.pushPage(DetailRequestFeedbackComponent);
   }
 }

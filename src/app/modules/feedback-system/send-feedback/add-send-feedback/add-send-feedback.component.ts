@@ -5,7 +5,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
   templateUrl: './add-send-feedback.component.html'
 })
 export class AddSendFeedbackComponent implements OnInit {
-  title = 'Thank you note - Thêm';
+  title = 'Cho thank you note - Thêm';
   @ViewChild('modalAddSendFeedback', { static: true }) modalAddSendFeedback: any;
 
   constructor() { }

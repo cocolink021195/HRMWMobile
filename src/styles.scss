@@ -451,18 +451,39 @@ ons-checkbox {
   display: grid;
 }
 
+.alert-dialog {
+  background: #fff;
+}
+
 ons-toolbar.toolbar {
   width: auto;
   padding: 0 16px;
   background-image: none;
   background-color: var(--color-bg);
 
-  .left ons-icon {
-    float: left;
+  .center {
+    width: calc(100% - 100px);
+    @extend .t-ellipsis;
   }
 
-  .right ons-icon {
-    float: right;
+  .left {
+    width: 50px;
+
+    ons-icon {
+      float: left;
+    }
+
+    ons-back-button {
+      width: 100%;
+    }
+  }
+
+  .right {
+    width: 50px;
+
+    ons-icon {
+      float: right;
+    }
   }
 
   .back-button {
@@ -589,7 +610,7 @@ ons-toolbar-button>ons-icon[icon*="ion-"] {
     padding: 0;
     width: auto;
     font-size: .9rem;
-    margin: 20px 16px;
+    margin: 16px;
     border-radius: 10px;
     box-shadow: 0px 3px 8px 1px rgba(0, 0, 0, 0.12);
 
