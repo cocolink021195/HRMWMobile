@@ -297,6 +297,7 @@ ons-toolbar-button>ons-icon[icon*="ion-"] {
     }
     .thumbnail{
       border-radius: 50%;
+      width: 50px;
     }
     .title{
       -webkit-flex-basis: 100%;
@@ -362,6 +363,15 @@ ons-toolbar-button>ons-icon[icon*="ion-"] {
     .status{
       color: #EC8F43;
     }
+  }
+  .list-item.loading{
+    border-left:3px #DEDFE2 solid;
+    .title, .subtitle, .date, .status{
+      background-color: #DEDFE2; color:#DEDFE2;
+    }   
+    ons-icon{
+      color:#DEDFE2;
+    }   
   }
 }
 ons-fab.fab, ons-speed-dial-item.fab, button.fab{
