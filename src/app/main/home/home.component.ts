@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { NavigatorService } from 'src/app/core/services/navigator.service';
 import { OnsNavigator } from 'ngx-onsenui';
+import { NavigatorService } from 'src/app/core/services/navigator/navigator.service';
 import { ListComponent } from '../list/list.component';
 import { AddSendFeedbackComponent } from 'src/app/modules/feedback-system/send-feedback/add-send-feedback/add-send-feedback.component';
 import { ReviewSendFeedbackComponent } from 'src/app/modules/feedback-system/send-feedback/review-send-feedback/review-send-feedback.component';
@@ -12,6 +12,8 @@ import { DetailRequestFeedbackComponent } from 'src/app/modules/feedback-system/
   templateUrl: './home.component.html'
 })
 export class HomeComponent implements OnInit {
+  tmpData: any;
+  tmpData1: any;
   listFunction: any;
 
   constructor(

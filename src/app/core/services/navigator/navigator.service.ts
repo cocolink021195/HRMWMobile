@@ -21,7 +21,6 @@ export class NavigatorService {
     return this.valueHideModal.asObservable();
   }
 
-
   myMenu() {
     this.menu.next();
   }
