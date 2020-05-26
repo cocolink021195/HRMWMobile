@@ -15,83 +15,65 @@
     </div>
 
     <div class="list-content">
-      <ons-list class="bg-img--none">
-        <!-- LIST  -->
-        <ons-list-item class="list-item loading">
+
+      <ons-list class="bg-img--none last-child-bg-img--none">
+        <ons-list-item class="list-item loading-ghost">
           <div class="left">
-            <img class="thumbnail" src="../../../assets/images/NONAL.png">
+            <div class="thumbnail"></div>
           </div>
           <div class="center">
-            <span class="title">loading...</span>  
-            <span class="subtitle">loading...</span>
-            <ons-icon class="fsap fsap-slim-arrow-right" ></ons-icon>
+            <div class="large-row-ghost mb-10"></div>
+            <div class="row-ghost mb-5"></div>
+            <div class="row-ghost"></div>
             <div class="bottom">
-              <span class="date">loading...</span>
-              <span class="status">loading...</span>
+              <div class="sub-row-ghost"></div>
             </div>
-          </div>  
+          </div>
         </ons-list-item>
         <ons-list-item class="list-item responded">
           <div class="left">
             <img class="thumbnail" src="http://placekitten.com/g/50/50">
           </div>
           <div class="center">
-            <span class="title">Nguyễn Văn Hùng</span>  
+            <span class="title">Nguyễn Văn Hùng</span>
             <span class="subtitle">Cảm ơn bạn đã hỗ trợ hoàn thành công việc chuẩn bị tài liệu</span>
             <ons-icon class="fsap fsap-slim-arrow-right"></ons-icon>
             <div class="bottom">
               <span class="date">22/05/2020</span>
               <span class="status">Đã phản hồi</span>
             </div>
-          </div>  
+          </div>
         </ons-list-item>
         <ons-list-item class="list-item non-respond">
           <div class="left">
             <img class="thumbnail" src="http://placekitten.com/g/50/50">
           </div>
           <div class="center">
-            <span class="title">Nguyễn Văn Hùng</span>  
+            <span class="title">Nguyễn Văn Hùng</span>
             <span class="subtitle">Cảm ơn bạn đã hỗ trợ hoàn thành công việc chuẩn bị tài liệu</span>
             <ons-icon class="fsap fsap-slim-arrow-right"></ons-icon>
             <div class="bottom">
               <span class="date">22/05/2020</span>
               <span class="status">Chưa phản hồi</span>
             </div>
-          </div>         
-          <!--<div class="center">
-            <div class="row grid">
-              <div class="t-center">
-                <img src="../../../assets/images/NONAL.png">
-              </div>
-              <div class="t-ellipsis">
-                <div class="row">
-                  <b>
-                    Lorem Ipsum
-                  </b>
-                </div>
-                <div class="row">
-                  Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-                  industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and
-                  scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap
-                  into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the
-                  release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing
-                  software like Aldus PageMaker including versions of Lorem Ipsum.
-                </div>
-              </div>
-            </div>
-          </div>-->
+          </div>
         </ons-list-item>
       </ons-list>
+
     </div>
     <ons-speed-dial position="right bottom" direction="up">
-      <ons-fab><ons-icon icon="md-plus"></ons-icon></ons-fab>      
+      <ons-fab>
+        <ons-icon icon="md-plus"></ons-icon>
+      </ons-fab>
     </ons-speed-dial>
   </div>
 </ons-page>
 
 <!-- MODAL -->
 <ons-alert-dialog animation="default" cancelable #modalFilter>
-  <div class="alert-dialog-title"> <ons-icon class="fsap fsap-add-filter"></ons-icon>Lọc dữ liệu </div>
+  <div class="alert-dialog-title">
+    <ons-icon class="fsap fsap-add-filter"></ons-icon>Lọc dữ liệu
+  </div>
   <div class="alert-dialog-content">
     <div class="form-item">
       <span class="form-item-left">Ngày ghi nhận</span>
@@ -99,36 +81,36 @@
         <mat-form-field>
           <mat-label>Tuần này</mat-label>
           <mat-select></mat-select>
-        </mat-form-field>       
+        </mat-form-field>
       </div>
-    </div>   
+    </div>
     <div class="form-item">
       <span class="form-item-left"></span>
-      <div class="form-item-right">       
+      <div class="form-item-right">
         <mat-form-field>
           <mat-label>05/2020</mat-label>
           <mat-select></mat-select>
         </mat-form-field>
       </div>
-    </div>   
+    </div>
     <div class="form-item">
       <span class="form-item-left">Tình trạng</span>
       <div class="form-item-right">
         <mat-form-field>
           <mat-label>Chưa xem</mat-label>
           <mat-select></mat-select>
-        </mat-form-field>        
+        </mat-form-field>
       </div>
-    </div>  
+    </div>
     <div class="form-item">
       <span class="form-item-left">Người nhận</span>
       <div class="form-item-right">
         <mat-form-field>
           <mat-label>Chọn người nhận</mat-label>
           <mat-select></mat-select>
-        </mat-form-field>        
+        </mat-form-field>
       </div>
-    </div>       
+    </div>
   </div>
   <div class="alert-dialog-footer alert-dialog-footer--rowfooter">
     <ons-alert-dialog-button class="alert-dialog-button--rowfooter alert-dialog-button" style="position: relative;">
@@ -139,6 +121,6 @@
     </ons-alert-dialog-button>
     <ons-alert-dialog-button class="alert-dialog-button--rowfooter alert-dialog-button" style="position: relative;">
       <ons-icon class="fsap fsap-decline"></ons-icon>Huỷ
-    </ons-alert-dialog-button>    
+    </ons-alert-dialog-button>
   </div>
 </ons-alert-dialog>

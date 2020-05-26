@@ -371,6 +371,7 @@ hrm-combobox-dialog .mat-form-field {
     .thumbnail {
       border-radius: 50%;
       width: 50px;
+      height: 50px;
     }
 
     .title {
@@ -449,19 +450,45 @@ hrm-combobox-dialog .mat-form-field {
     }
   }
 
-  .list-item.loading {
-    border-left: 3px #DEDFE2 solid;
+  .loading-ghost {
+    border-left: 3px rgba(204, 204, 204, 0.5) solid;
 
-    .title,
-    .subtitle,
-    .date,
-    .status {
-      background-color: #DEDFE2;
-      color: #DEDFE2;
+    &::after {
+      display: block;
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      transform: translateX(-100%);
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.5), transparent);
+      animation: loading-ghost 1s infinite;
     }
 
-    ons-icon {
-      color: #DEDFE2;
+    &.list-item .center {
+      padding: 10px 16px 35px 0px;
+      background-image: none;
+    }
+
+    .thumbnail,
+    .row-ghost,
+    .large-row-ghost,
+    .sub-row-ghost {
+      background-color: rgba(204, 204, 204, 0.5);
+    }
+
+    .row-ghost {
+      height: 15px;
+      width: 100%;
+    }
+
+    .large-row-ghost {
+      height: 20px;
+      width: 75%;
+    }
+
+    .sub-row-ghost {
+      height: 13px;
+      width: 70px;
     }
   }
 }
@@ -820,16 +847,6 @@ button.fab {
 
 
 
-@include my-keyframes(lds-dual-ring) {
-  0% {
-    transform: rotate(0deg);
-  }
-
-  100% {
-    transform: rotate(360deg);
-  }
-}
-
 /*#region add-send-feedback*/
 .search-user {
   display: grid;
@@ -1108,3 +1125,21 @@ button.fab {
 }
 
 /*#endregion*/
+
+
+
+@include my-keyframes(lds-dual-ring) {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@include my-keyframes(loading-ghost) {
+  100% {
+    transform: translateX(100%);
+  }
+}
