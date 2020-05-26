@@ -6,17 +6,47 @@
     <div class="center"> {{title}} </div>
     <div class="right"></div>
   </ons-toolbar>
-  <div class="content">
-
-
-
-
-
-
-
-
-
-
-
+  <div class="content content-full content-full-toolbar">
+    <div class="add-request-feedback">
+      <div class="left">Nội dung yêu cầu: </div>
+      <div class="right">Thứ 4, 20/05/2020</div> 
+      <textarea class="textarea textarea--transparent" rows="5" placeholder="Nội dung yêu cầu người khác cho phản hồi"></textarea>  
+      <div class="left" style="padding-top: 3px;">Gửi phản hồi đến: </div>
+      <div class="right">
+        <div class="add-more">
+          <button class="toolbar-button toolbar-button--outline">
+            <ons-icon class="fsap fsap-add"></ons-icon> Thêm
+          </button>
+        </div>
+      </div>
+      <div class="pick-users"> 
+        <div class="pick-user">        
+          <mat-form-field>
+            <mat-label>Họ và tên người cho phản hồi 1</mat-label>
+            <mat-select></mat-select>
+          </mat-form-field>  
+          <ons-icon class="fsap fsap-delete"></ons-icon>     
+        </div>
+        <div class="pick-user">        
+          <mat-form-field>
+            <mat-label>Họ và tên người cho phản hồi 2</mat-label>
+            <mat-select></mat-select>
+          </mat-form-field>  
+          <ons-icon class="fsap fsap-delete"></ons-icon>     
+        </div>
+        <div class="pick-user">        
+          <mat-form-field>
+            <mat-label>Họ và tên người cho phản hồi 3</mat-label>
+            <mat-select></mat-select>
+          </mat-form-field>  
+          <ons-icon class="fsap fsap-delete"></ons-icon>     
+        </div>
+      </div>                     
+    </div> 
+  </div>
+  <div class="toolbar-bottom">
+    <button class="toolbar-button toolbar-button--outline" style="margin-right: 0px;">
+      <ons-icon class="fsap fsap-paper-plane"></ons-icon> Gửi
+    </button>    
   </div>
 </ons-page>
