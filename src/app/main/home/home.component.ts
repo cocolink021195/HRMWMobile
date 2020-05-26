@@ -29,30 +29,30 @@ export class HomeComponent implements OnInit {
     this.listFunction = [{
       Header: 'Cho Phản Hồi',
       Icon: 'fsap fsap-outbox',
-      Color: '#000000',
+      Color: 'var(--color-primary-6)',
       Functions: [
-        { Title: 'Thank You', Number: 999999999, Icon: 'fsap fsap-favorite-list', Background: '' },
-        { Title: 'Phiếu Con Gấu', Number: 999999999, Icon: 'fsap fsap-favorite-list', Background: '' },
-        { Title: 'Phản Hồi Khác', Number: 999999999, Icon: 'fsap fsap-favorite-list', Background: '' }
+        { Title: 'Thank You', Number: 40, Icon: 'fsap fsap-add-favorite', Background: '' },
+        { Title: 'Phiếu Con Gấu', Number: 36, Icon: 'fsap fsap-discussion', Background: '' },
+        { Title: 'Phản Hồi Khác', Number: 33, Icon: 'fsap fsap-discussion-2', Background: '' }
       ]
     },
     {
       Header: 'Nhận Phản Hồi',
       Icon: 'fsap fsap-inbox',
-      Color: '#ffa500',
+      Color: 'var(--color-primary-6)',
       Functions: [
-        { Title: 'Thank You', Number: 999999999, Icon: 'fsap fsap-favorite-list', Background: '' },
-        { Title: 'Phiếu Con Gấu', Number: 999999999, Icon: 'fsap fsap-favorite-list', Background: '' },
-        { Title: 'Phản Hồi Khác', Number: 999999999, Icon: 'fsap fsap-favorite-list', Background: '' }
+        { Title: 'Thank You', Number: 56, Icon: 'fsap fsap-add-favorite', Background: '' },
+        { Title: 'Phiếu Con Gấu', Number: 80, Icon: 'fsap fsap-discussion', Background: '' },
+        { Title: 'Phản Hồi Khác', Number: 45, Icon: 'fsap fsap-discussion-2', Background: '' }
       ]
     },
     {
       Header: 'Yêu Cầu Cho Phản Hồi',
       Icon: 'fsap fsap-email',
-      Color: '#3fff00',
+      Color: 'var(--color-primary-6)',
       Functions: [
-        { Title: 'Xin Phản Hồi', Number: 999999999, Icon: 'fsap fsap-favorite-list', Background: '' },
-        { Title: 'Phản Hồi Yêu Cầu', Number: 999999999, Icon: 'fsap fsap-favorite-list', Background: '' }
+        { Title: 'Xin Phản Hồi', Number: 45, Icon: 'fsap fsap-question-mark', Background: '' },
+        { Title: 'Phản Hồi Yêu Cầu', Number: 68, Icon: 'fsap fsap-approvals', Background: '' }
       ]
     }]
   }

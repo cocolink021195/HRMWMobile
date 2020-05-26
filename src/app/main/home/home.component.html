@@ -4,7 +4,7 @@
       <ons-icon icon="ion-ios-menu, material:md-menu"></ons-icon>
     </ons-toolbar-button>
   </div>
-  <div class="center">Hệ Thống Phản Hồi</div>
+  <div class="center">HỆ THỐNG PHẢN HỒI</div>
   <div class="right"></div>
 </ons-toolbar>
 
@@ -39,7 +39,7 @@
         <ng-container *ngIf="item && item.Functions && item.Functions[0]">
           <div class="function-head">
             <ons-icon class={{item?.Icon}}></ons-icon>
-            <div class="title" [ngStyle]="{'color': item?.Color}">{{item?.Header || "&nbsp;"}}</div>
+            <div class="title">{{item?.Header || "&nbsp;"}}</div>
           </div>
           <div class="function-body">
             <ng-container *ngFor="let itemSmall of item.Functions">
@@ -54,6 +54,12 @@
           </div>
         </ng-container>
       </ng-container>
+      <button (click)="eventOnPushList()" style="margin-right: 20px;">Danh sách</button>
+      <button (click)="eventOnPushAddNew()" style="margin-right: 20px;">Thêm phiếu</button>
+      <button (click)="eventOnPushReview()" style="margin-right: 20px;">Xem phiếu</button>
+      <button (click)="eventOnPushAddRequestFeedback()" style="margin-right: 20px;">Thêm mới xin phản hồi</button>
+      <button (click)="eventOnPushDetailRequestFeedback()" style="margin-right: 20px;">Chi tiết phản hồi yêu
+        cầu</button>
     </div>
   </div>
 </ons-page>

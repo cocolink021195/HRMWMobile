@@ -5,7 +5,7 @@ import { Component, OnInit, ViewChild, ViewContainerRef } from '@angular/core';
   templateUrl: './list.component.html'
 })
 export class ListComponent implements OnInit {
-  title = 'Cho Thank You Note (9999999999)';
+  title = 'Thank You Note (65)';
   @ViewChild('loadListTemp', { static: true, read: ViewContainerRef }) loadListTemp: ViewContainerRef;
   @ViewChild('loadListGhost', { static: true, read: ViewContainerRef }) loadListGhost: ViewContainerRef;
 
