@@ -11,10 +11,34 @@
 <ons-page>
   <div class="content">
     <div class="function">
+      <button (click)="eventOnPushList()" style="margin: 10px;">Danh sách</button>
+      <button (click)="eventOnPushAddNew()" style="margin: 10px;">Thêm phiếu</button>
+      <button (click)="eventOnPushReview()" style="margin: 10px;">Xem phiếu</button>
+      <button (click)="eventOnPushAddRequestFeedback()" style="margin: 10px;">Thêm mới xin phản hồi</button>
+      <button (click)="eventOnPushDetailRequestFeedback()" style="margin: 10px;">Chi tiết phản hồi yêu cầu</button>
+      <br>
+      <br>
+      <br>
+      <hrm-combobox-dialog [(ngModel)]="tmpData" id="test" value="1041" multi="false" keyname="name" keyvalue="id"
+        placeholder="Gửi đến"></hrm-combobox-dialog>
+      <br>
+      {{tmpData}}
+      <br>
+      <br>
+      <br>
+      <hrm-combobox-dialog [(ngModel)]="tmpData1" id="test1" value="1021" multi="true" keyname="name" keyvalue="id"
+        placeholder="Gửi đến 1"></hrm-combobox-dialog>
+      <br>
+      {{tmpData1}}
+
+
+
+
+
       <ng-container *ngFor="let item of listFunction">
         <ng-container *ngIf="item && item.Functions && item.Functions[0]">
           <div class="function-head">
-            <ons-icon class="fsap {{item?.Icon}}"></ons-icon>
+            <ons-icon class={{item?.Icon}}></ons-icon>
             <div class="title">{{item?.Header || "&nbsp;"}}</div>
           </div>
           <div class="function-body">

@@ -1,7 +1,10 @@
+import { ErrorInterceptor } from './helpers/error.interceptor';
+import { JwtInterceptor } from './helpers/jwt.interceptor';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { CoreModule } from './core/core.module';
 import { AppComponent } from './app.component';
 import * as ons from 'onsenui';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -13,8 +16,8 @@ import * as ons from 'onsenui';
   ],
   entryComponents: [],
   providers: [
-    // { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
-    // { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
     // { provide: HTTP_INTERCEPTORS, useClass: CachingInterceptor, multi: true }
   ],
   bootstrap: [AppComponent],

@@ -1,6 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
 import { SideBarComponent } from './main/side-bar/side-bar.component';
-import { NavigatorService } from './core/services/navigator.service';
+import { NavigatorService } from './core/services/navigator/navigator.service';
 
 
 @Component({

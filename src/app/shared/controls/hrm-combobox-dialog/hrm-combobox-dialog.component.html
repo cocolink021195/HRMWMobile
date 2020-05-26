@@ -1,0 +1,67 @@
+<div class="hrm-combobox-dialog">
+  <mat-form-field (click)="modalComboboxDialog.show()">
+    <mat-label [ngClass]="{'display': displayValue}">{{displayValue || placeholder}}</mat-label>
+    <mat-select></mat-select>
+  </mat-form-field>
+
+  <ons-alert-dialog animation="default" cancelable #modalComboboxDialog>
+    <div class="alert-dialog-title">{{placeholder}}</div>
+    <div class="alert-dialog-content">
+
+      <ons-search-input (keyup)="eventOnSearch($event.target.value)" placeholder="Search"></ons-search-input>
+      <div class="loading" *ngIf="false == isLoadingData">
+        <ons-progress-circular indeterminate></ons-progress-circular>
+      </div>
+
+
+
+      <ng-container *ngIf="data && (data | json) != '{}' && data?.length > 0; else elseData">
+        <ons-list class="bg-img--none last-child-bg-img--none" (scroll)="eventOnScroll($event)">
+
+
+          <ons-list-item *ngFor="let item of data; let index = index; trackBy: trackByFn" tappable>
+            <div class="left">
+              <ng-container *ngIf="true == multi; else elseMulti">
+                <ons-checkbox (click)="eventCheckboxHandler(chooseMultiRadio.value, item)" #chooseMultiRadio
+                  [attr.input-id]="'hrm-cbx-dialog-' + uniqueID + '-' + index" [attr.value]="item[keyvalue]"
+                  modifier="noborder">
+                </ons-checkbox>
+              </ng-container>
+              <ng-template #elseMulti>
+                <ons-radio (click)="eventRadioHandler(chooseOnlyRadio.value, item)" #chooseOnlyRadio
+                  [attr.input-id]="'hrm-cbx-dialog-' + uniqueID + '-' + index" [attr.value]="item[keyvalue]"
+                  [attr.name]="'choose-only-radio-' + uniqueID">
+                </ons-radio>
+              </ng-template>
+            </div>
+            <label class="center" [attr.for]="'hrm-cbx-dialog-' + uniqueID + '-' + index">
+              <span class="_name">{{item[keyname] || '&nbsp;'}}</span>
+              <span class="_id">{{item[keyvalue]}}</span>
+            </label>
+          </ons-list-item>
+        </ons-list>
+
+
+      </ng-container>
+      <ng-template #elseData>
+        <ons-list *ngIf="true == isLoadingData">
+          <ons-list-item class="loading text-center">
+            {{env.Notification.DataNotFound}}
+          </ons-list-item>
+        </ons-list>
+      </ng-template>
+
+
+
+    </div>
+    <div class="alert-dialog-footer alert-dialog-footer--rowfooter">
+      <ons-alert-dialog-button (click)="modalComboboxDialog.hide()" class="alert-dialog-button--rowfooter">
+        {{env.Button.Cancel}}
+      </ons-alert-dialog-button>
+      <ons-alert-dialog-button (click)="eventOKHandler(); modalComboboxDialog.hide()"
+        class="alert-dialog-button--rowfooter">
+        {{env.Button.OK}}
+      </ons-alert-dialog-button>
+    </div>
+  </ons-alert-dialog>
+</div>

@@ -3,7 +3,30 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+
+  HeaderHRM: {
+    ContentType: 'application/json',
+    ApiType: 'hrm',
+    FunctionIDLogin: 'Login',
+    ApplicationID: 'HrmMobileWeb',
+    ApiUrl: 'core/authentication/login',
+  },
+
+  API: 'http://localhost/HrmMobileWebWS/ApiHandler/Call',
+  PageSize: 20,
+
+  Button: {
+    Cancel: 'Hủy',
+    OK: 'Đồng ý',
+    Choose: 'Chọn',
+    ClearFilter: 'Bỏ lọc'
+  },
+  Notification: {
+    TitleAlert: 'Cảnh Báo',
+    DataNotFound: 'Không có dữ liệu !!!'
+  },
+
 };
 
 /*
