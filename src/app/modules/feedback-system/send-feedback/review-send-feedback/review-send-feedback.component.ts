@@ -5,7 +5,7 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './review-send-feedback.component.html'
 })
 export class ReviewSendFeedbackComponent implements OnInit {
-  title = 'Cho thank you note - Xem'
+  title = 'Thank you note - Xem'
   constructor() { }
 
   ngOnInit() {
