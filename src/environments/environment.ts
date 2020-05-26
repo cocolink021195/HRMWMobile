@@ -14,6 +14,7 @@ export const environment = {
   },
 
   API: 'http://localhost/HrmMobileWebWS/ApiHandler/Call',
+  // API: 'http://113.161.108.195:8080/mobileapi/api/auth/login',
   PageSize: 20,
 
   Button: {

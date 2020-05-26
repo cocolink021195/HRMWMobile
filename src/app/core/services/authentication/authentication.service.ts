@@ -90,34 +90,40 @@ export class AuthenticationService {
   postLogin(data) {
     // this.navigatorService.showScreenLoading();
 
-    // const headers = new HttpHeaders({
-    //   'Content-Type': this.headerHRM.ContentType,
-    //   'HRM-Api-Url': this.headerHRM.ApiUrl,
-    //   'HRM-Function-ID': this.headerHRM.FunctionIDLogin,
-    //   'HRM-Application-ID': environment.HeaderHRM.ApplicationID,
-    //   'HRM-Api-Type': environment.HeaderHRM.ApiType,
-    //   'Access-Control-Allow-Origin': '*',
-    //   // 'Access-Control-Allow-Methods': 'GET,HEAD,OPTIONS,POST,PUT',
-    //   'Access-Control-Allow-Headers': '*'
-    // });
-    // const options = { headers: headers };
+    const headers = new HttpHeaders({
+      'Content-Type': this.headerHRM.ContentType,
+      'HRM-Api-Url': this.headerHRM.ApiUrl,
+      'HRM-Function-ID': this.headerHRM.FunctionIDLogin,
+      'HRM-Application-ID': environment.HeaderHRM.ApplicationID,
+      'HRM-Api-Type': environment.HeaderHRM.ApiType,
+      // 'Access-Control-Allow-Origin': '*',
+      // 'Access-Control-Allow-Methods': 'GET,HEAD,OPTIONS,POST,PUT',
+      // 'Access-Control-Allow-Headers': '*'
+    });
+    const options = { headers: headers };
+
+
+
 
     // const api = 'http://makeup-api.herokuapp.com/api/v1/products.json?product_type=eyeliner';
     // return this.http.get<any>(api)
     //   .pipe(map(result => console.log('AAAAAAAAAAAA: ', result)));
 
 
-    const api = 'http://localhost/HrmMobileWebWS/api/Command/Ping';
-    return this.http.get<any>(api)
-      .pipe(map(result => console.log('AAAAAAAAAAAA: ', result)));
+
+    // const api = 'http://localhost/HrmMobileWebWS/api/Command/Ping';
+    // return this.http.get<any>(api)
+    //   .pipe(map(result => console.log('AAAAAAAAAAAA: ', result)));
 
 
-    // return this.http.post<any>(environment.API, data, options)
-    //   .pipe(map(result => {
-    //     // this.navigatorService.hideScreenLoading();
 
-    //     console.log('postLogin result: ', result);
-    //     return result && result.Data;
-    //   }));
+
+    return this.http.post<any>(environment.API, data, options)
+      .pipe(map(result => {
+        // this.navigatorService.hideScreenLoading();
+
+        console.log('postLogin result: ', result);
+        return result && result.Data;
+      }));
   }
 }

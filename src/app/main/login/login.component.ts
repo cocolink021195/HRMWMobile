@@ -1,12 +1,14 @@
-import { environment } from 'src/environments/environment';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { environment } from 'src/environments/environment';
 import { AuthenticationService } from 'src/app/core/services/authentication/authentication.service';
-import * as ons from 'onsenui';
 import { UserLogin } from 'src/app/core/services/authentication/user-login';
+import { takeUntil } from 'rxjs/operators';
+import { Unsubscriber } from 'src/app/hocs/unsubscriber.hoc';
+import * as ons from 'onsenui';
 
 
-
+@Unsubscriber()
 @Component({
   selector: 'ons-page[login]',
   templateUrl: './login.component.html'
@@ -51,6 +53,7 @@ export class LoginComponent implements OnInit {
     console.log('this.loginInfo: ', this.loginInfo);
 
     this.authenticationService.login(this.loginInfo)
+      .pipe(takeUntil((this as any).destroyed$))
       .subscribe(user => {
         console.log('authenticationService user: ', user);
 

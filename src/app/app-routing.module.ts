@@ -1,3 +1,4 @@
+import { ListComponent } from './main/list/list.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './main/home/home.component';
@@ -7,7 +8,8 @@ import { LoginComponent } from './main/login/login.component';
 const routes: Routes = [
   {
     path: '',
-    component: HomeComponent,
+    // component: HomeComponent,
+    component: ListComponent,
     // canActivate: [AuthGuard]
   },
   { path: 'login', component: LoginComponent },

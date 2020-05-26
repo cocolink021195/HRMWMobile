@@ -1,3 +1,4 @@
+import { SettingService } from './../../../core/services/setting/setting.service';
 import { environment } from './../../../../environments/environment';
 import { HrmApiService } from './../../../core/services/hrm-api/hrm-api.service';
 import { Component, OnInit, forwardRef, Input, Output, EventEmitter } from '@angular/core';
@@ -5,7 +6,9 @@ import { NG_VALUE_ACCESSOR } from '@angular/forms';
 import { Subscription, Subject } from 'rxjs';
 import * as $ from 'jquery';
 import { debounceTime, takeUntil } from 'rxjs/operators';
+import { Unsubscriber } from 'src/app/hocs/unsubscriber.hoc';
 
+@Unsubscriber()
 @Component({
   selector: 'hrm-combobox-dialog',
   templateUrl: './hrm-combobox-dialog.component.html',
@@ -27,19 +30,20 @@ export class HrmComboboxDialogComponent implements OnInit {
   @Input() placeholder: string;
   @Output() valueChange = new EventEmitter();
   data: any;
-  chooseValue: any;
+  chooseValue = [];
   tmpChooseValue: any;
   displayValue: string;
   uniqueID = Date.now();
   isLoadingData = false;
+  isSmallIconLoading = false;
   options = new LoadingParameter();
 
 
-  private subscription: Subscription = new Subscription();
   private subjectEventSearch: Subject<string> = new Subject();
 
   constructor(
-    private hrmApi: HrmApiService
+    private hrmApi: HrmApiService,
+    private settingService: SettingService
   ) { }
 
   ngOnInit() {
@@ -48,7 +52,7 @@ export class HrmComboboxDialogComponent implements OnInit {
   }
 
   ngOnDestroy() {
-    this.subscription.unsubscribe();
+
   }
 
   initControl() {
@@ -60,20 +64,32 @@ export class HrmComboboxDialogComponent implements OnInit {
   }
 
   getData() {
-    const unsubscribe = this.hrmApi.testingPost().subscribe(data => {
-      console.log(`testingPost: ${this.id} - ${this.keyvalue} - ${this.keyname} - ${this.multi} - ${this.value}`, data);
-      this.isLoadingData = true;
-      this.data = data.splice(0, 20);
-    })
+    this.hrmApi.testingPost()
+      .pipe(takeUntil((this as any).destroyed$))
+      .subscribe(data => {
+        console.log(`testingPost: ${this.id} - ${this.keyvalue} - ${this.keyname} - ${this.multi} - ${this.value}`, data);
+        this.isLoadingData = true;
+        this.isSmallIconLoading = false;
 
-    this.subscription.add(unsubscribe);
+        if (false == this.settingService.isNullOrEmpty(data)) {
+          if (this.data) {
+            this.options.TotalSize = data.length;
+            this.options.onScrolling = false;
+            this.options.isFull = (this.options.Page + 1) * this.options.PageSize >= this.options.TotalSize;
+
+            this.data = [...this.data, ...(data.splice(this.options.Page * 20 + 1, this.options.PageSize))];
+          } else {
+            this.data = data.splice(0, 20);
+          }
+        }
+      });
   }
 
+  //#region EVENT RADIO & CHECKBOX
   eventOKHandler() {
     console.log('[this.id, this.chooseValue]: ', [this.id, this.chooseValue]);
-
     this.displayValue = this.handleDisplayValue(this.chooseValue, this.keyname);
-    this.eventSendValue([this.id, this.chooseValue]);
+    this.eventSendValue([this.id, this.keyvalue, this.keyname, this.chooseValue]);
   }
 
   eventRadioHandler(value, item) {
@@ -82,7 +98,7 @@ export class HrmComboboxDialogComponent implements OnInit {
   }
 
   eventCheckboxHandler(value, item) {
-    this.tmpChooseValue = this.validationChecked(this.tmpChooseValue, value, item, this.keyvalue);
+    this.chooseValue = this.tmpChooseValue = this.validationChecked(this.tmpChooseValue, value, item, this.keyvalue);
     console.log('eventCheckboxHandler: ', value, item);
     console.log('this.tmpChooseValue: ', this.tmpChooseValue);
   }
@@ -118,6 +134,7 @@ export class HrmComboboxDialogComponent implements OnInit {
       }
     }
   }
+  //#endregion
 
   //#region EVENT SCROLL
   eventOnScroll(event) {
@@ -125,14 +142,17 @@ export class HrmComboboxDialogComponent implements OnInit {
     if (!dcScroll) return;
 
     if (dcScroll.scrollTop + dcScroll.clientHeight >= dcScroll.scrollHeight - 150 && !this.options.isFull && !this.options.onScrolling) {
-      this.options.onScrolling = true;
       this.options.Page++;
+      this.options.onScrolling = true;
       this.options.isFull = (this.options.Page + 1) * this.options.PageSize >= this.options.TotalSize;
 
       if ((0 == (this.options.Page * this.options.PageSize) % 40) && false == this.options.isFull) {
+        this.data = [];
         this.isLoadingData = false;
       }
 
+      this.isSmallIconLoading = true;
+      this.getData();
       console.log('getDataTable: ');
     }
   }
@@ -140,13 +160,14 @@ export class HrmComboboxDialogComponent implements OnInit {
 
   //#region EVENT SEARCH
   initEventOnSearch() {
-    const unsubscribe = this.subjectEventSearch.pipe(debounceTime(1000))
+    this.subjectEventSearch.pipe(debounceTime(1000))
+      .pipe(takeUntil((this as any).destroyed$))
       .subscribe(strSearch => {
         console.log('initEventOnSearch strSearch: ', strSearch);
-
+        this.options = new LoadingParameter();
+        this.data = [];
+        this.getData();
       });
-
-    this.subscription.add(unsubscribe);
   }
 
   eventOnSearch(strSearch) {
@@ -194,13 +215,13 @@ export class HrmComboboxDialogComponent implements OnInit {
 
 
 
-
+  //#region SETTING
   handleDisplayValue(data, keyname) {
     let strDisplay = '';
     if (typeof data == 'object' && data.length > 0)
       strDisplay = data.map(item => item[keyname]).toString();
 
-    return strDisplay;
+    return strDisplay.replace(/,/g, ', ');
   }
 
   trackByFn(index) {
@@ -209,8 +230,8 @@ export class HrmComboboxDialogComponent implements OnInit {
 
   writeValue(value: any) { }
 
-  eventSendValue([id, chooseValue]) {
-    const data = [id, chooseValue];
+  eventSendValue([id, keyvalue, keyname, chooseValue]) {
+    const data = [id, keyvalue, keyname, chooseValue];
     this.propagateChange(data);
   }
 
@@ -219,6 +240,7 @@ export class HrmComboboxDialogComponent implements OnInit {
   registerOnChange = (fn) => this.propagateChange = fn;
 
   registerOnTouched() { }
+  //#endregion
 }
 
 class LoadingParameter {
