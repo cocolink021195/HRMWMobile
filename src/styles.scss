@@ -354,7 +354,7 @@ ons-page{
     }
     .thumbnail{
       border-radius: 50%;
-      width: 50px;
+      width: 60px;
     }       
     .title{
       -webkit-flex-basis: 100%;
@@ -365,7 +365,9 @@ ons-page{
       -webkit-order: 0;
       order: 0;
       line-height: 1.2em;
-      font-size: 1.05em;
+      font-size: 1.05em;      
+      max-height: 1.2em;
+      overflow: hidden;    
     }
     .date-sent{
       float: right;
@@ -383,6 +385,9 @@ ons-page{
       opacity: 0.75;
       font-size: 0.98em;   
       padding-top: 3px; 
+      line-height: 17px;
+      max-height: 34px;
+      overflow: hidden;     
     }
     .center {
       padding: 10px 10px 35px 0px;
@@ -395,11 +400,12 @@ ons-page{
       right: 10px;
       .date{
         opacity: 0.75;   
-        font-size: 0.8em;     
+        font-size: 0.8em;  
+        margin-right: 5px;
+        padding-right: 5px; 
+        border-right:2px #DEDFE2 solid;       
       }
-      .status{
-        margin-left: 5px;
-        padding-left: 5px;          
+      .status{             
         font-size: 0.8em;         
       }
     }
@@ -573,12 +579,13 @@ ons-fab.fab, ons-speed-dial-item.fab, button.fab{
     display: inline-block;
     width: 100%;
     .form-item-left{
-      width: 30%;
+      width: 35%;
       float: left;
       padding-top: 18px;      
+      text-align: left;
     }
     .form-item-right{
-      width: 68%;
+      width: 63%;
       float: right;
       .mat-form-field{
         width: 100%;
@@ -813,17 +820,23 @@ ons-fab.fab, ons-speed-dial-item.fab, button.fab{
       .list-item-title{        
         width: calc(100% - 10px);
         background-color: #F38AB8;
-        padding: 8px;
+        padding: 8px 30px 8px 8px;
         text-indent: 40px;
         position: absolute;
         top: 9px;
         left: 10px;
-        z-index: 0;
-        color: #fff;   
-        height: 32px;      
-        line-height: 16px;
-        overflow: hidden;
-      }
+        z-index: 0; 
+        p{
+          color: #fff;  
+          line-height: 16px;
+          height: 16px;
+          overflow: hidden;     
+          margin: 0;     
+          width: 100%;
+          white-space: nowrap;         
+          text-overflow: ellipsis; 
+        } 
+      }      
       ons-icon{
         line-height: 32px;        
         color: #fff;
