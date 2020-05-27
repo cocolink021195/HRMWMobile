@@ -15,11 +15,16 @@
     </div>
 
     <div class="list-content">
-
       <ons-list class="bg-img--none last-child-bg-img--none">
 
-        <ng-template #loadListTemp></ng-template>
+        <ng-template #loadListItem></ng-template>
         <ng-template #loadListGhost></ng-template>
+
+        <ng-template *ngIf="isDataNotFound">
+          <div class="empty-list">
+            {{env.Notification.DataNotFound}}
+          </div>
+        </ng-template>
 
         <ons-list-item class="list-item list-item-viewed">
           <div class="left">

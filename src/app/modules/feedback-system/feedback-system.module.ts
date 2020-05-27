@@ -1,3 +1,4 @@
+import { ItemListFeedbackComponent } from './common/item-list/item-list-feedback/item-list-feedback.component';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { AddSendFeedbackComponent } from './send-feedback/add-send-feedback/add-send-feedback.component';
@@ -15,12 +16,21 @@ import { DetailRequestFeedbackComponent } from './request-feedback/detail-reques
     AddRequestFeedbackComponent,
     DetailRequestFeedbackComponent,
 
+
+    ItemListFeedbackComponent,
+
+    
+
   ],
   entryComponents: [
     AddSendFeedbackComponent,
     ReviewSendFeedbackComponent,
     AddRequestFeedbackComponent,
     DetailRequestFeedbackComponent,
+
+
+
+    ItemListFeedbackComponent,
 
   ],
   exports: [],

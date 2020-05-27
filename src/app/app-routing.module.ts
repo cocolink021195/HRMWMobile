@@ -12,6 +12,11 @@ const routes: Routes = [
     component: ListComponent,
     // canActivate: [AuthGuard]
   },
+  {
+    path: 'fbs',
+    loadChildren: () => import('./modules/feedback-system/feedback-system.module').then(m => m.FeedbackSystemModule),
+    // canLoad: [AuthGuard]
+  },
   { path: 'login', component: LoginComponent },
   { path: '**', pathMatch: 'full', redirectTo: '/' },
 ];
