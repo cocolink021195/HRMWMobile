@@ -25,7 +25,7 @@ export class ListComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-
+    this.loadMain();
   }
 
   ngOnDestroy() { }
@@ -80,7 +80,7 @@ export class ListComponent implements OnInit {
 
 
   loadGhostListComponent() {
-    const lstGhost = new Array(10);
+    const lstGhost = new Array(1);
     for (let i = 0; i < lstGhost.length; i++) {
       this.tempItemsComponent = this.componentFactoryResolver.resolveComponentFactory(GhostListComponent);
       this.componentRef = this.loadListGhost.createComponent(this.tempItemsComponent);

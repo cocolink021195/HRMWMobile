@@ -17,26 +17,17 @@
     <div class="list-content">
 
       <ons-list class="bg-img--none last-child-bg-img--none">
-        <ons-list-item class="list-item loading-ghost">
-          <div class="left">
-            <div class="thumbnail"></div>
-          </div>
-          <div class="center">
-            <div class="large-row-ghost mb-10"></div>
-            <div class="row-ghost mb-5"></div>
-            <div class="row-ghost"></div>
-            <div class="bottom">
-              <div class="sub-row-ghost"></div>
-            </div>
-          </div>
-        </ons-list-item>
+
+        <ng-template #loadListTemp></ng-template>
+        <ng-template #loadListGhost></ng-template>
+
         <ons-list-item class="list-item list-item-viewed">
           <div class="left">
             <img class="thumbnail" src="http://placekitten.com/g/50/50">
           </div>
           <div class="center">
-            <div class="title">Nguyễn Văn Hùng<span class="date-sent">22/05/2020</span></div>  
-            <span class="subtitle">Cảm ơn bạn đã hỗ trợ hoàn thành công việc chuẩn bị tài liệu</span>            
+            <div class="title">Nguyễn Văn Hùng<span class="date-sent">22/05/2020</span></div>
+            <span class="subtitle">Cảm ơn bạn đã hỗ trợ hoàn thành công việc chuẩn bị tài liệu</span>
             <div class="bottom">
               <!--<span class="date">22/05/2020</span>-->
               <span class="status">Đã xem</span>
@@ -48,13 +39,13 @@
             <img class="thumbnail" src="http://placekitten.com/g/50/50">
           </div>
           <div class="center">
-            <div class="title">Nguyễn Văn Hùng<span class="date-sent">22/05/2020</span></div> 
-            <span class="subtitle">Cảm ơn bạn đã hỗ trợ hoàn thành công việc chuẩn bị tài liệu</span>            
+            <div class="title">Nguyễn Văn Hùng<span class="date-sent">22/05/2020</span></div>
+            <span class="subtitle">Cảm ơn bạn đã hỗ trợ hoàn thành công việc chuẩn bị tài liệu</span>
             <div class="bottom">
               <!--<span class="date">22/05/2020</span>-->
               <span class="status">Chưa xem</span>
             </div>
-          </div>  
+          </div>
         </ons-list-item>
       </ons-list>
 
@@ -66,6 +57,8 @@
     </ons-speed-dial>
   </div>
 </ons-page>
+
+
 
 <!-- MODAL -->
 <ons-alert-dialog animation="default" cancelable #modalFilter>
