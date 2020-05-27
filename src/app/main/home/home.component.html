@@ -6,64 +6,54 @@
   </div>
   <div class="center">HỆ THỐNG PHẢN HỒI</div>
   <div class="right">
-    <div class="noti noti-home" style="background-image: url(/assets/images/noti-feedback.png);">
+    <div class="noti" style="background-image: url(/assets/images/noti-feedback.png);">
       <span class="num">45</span>
     </div>
   </div>
 </ons-toolbar>
 
-<ons-page>
-  <div class="content">
-    <div class="function">
-      <button (click)="eventOnPushList()" style="margin: 10px;">Danh sách</button>
-      <button (click)="eventOnPushAddNew()" style="margin: 10px;">Thêm phiếu</button>
-      <button (click)="eventOnPushReview()" style="margin: 10px;">Xem phiếu</button>
-      <button (click)="eventOnPushAddRequestFeedback()" style="margin: 10px;">Thêm mới xin phản hồi</button>
-      <button (click)="eventOnPushDetailRequestFeedback()" style="margin: 10px;">Chi tiết phản hồi yêu cầu</button>
-      <br>
-      <br>
-      <br>
-      <hrm-combobox-dialog [(ngModel)]="tmpData" id="test" value="1041" multi="false" keyname="name" keyvalue="id"
-        placeholder="Gửi đến"></hrm-combobox-dialog>
-      <br>
-      {{tmpData}}
-      <br>
-      <br>
-      <br>
-      <hrm-combobox-dialog [(ngModel)]="tmpData1" id="test1" value="1021" multi="true" keyname="name" keyvalue="id"
-        placeholder="Gửi đến 1"></hrm-combobox-dialog>
-      <br>
-      {{tmpData1}}
-
-
-
-
-
+<ons-page> 
+  <div class="content content-home">
+    <button (click)="eventOnPushList()" style="margin: 10px;">Danh sách</button>
+    <button (click)="eventOnPushAddNew()" style="margin: 10px;">Thêm phiếu</button>
+    <button (click)="eventOnPushReview()" style="margin: 10px;">Xem phiếu</button>
+    <button (click)="eventOnPushAddRequestFeedback()" style="margin: 10px;">Thêm mới xin phản hồi</button>
+    <button (click)="eventOnPushDetailRequestFeedback()" style="margin: 10px;">Chi tiết phản hồi yêu cầu</button>
+    <!--<br>
+    <br>
+    <br>
+    <hrm-combobox-dialog [(ngModel)]="tmpData" id="test" value="1041" multi="false" keyname="name" keyvalue="id"
+      placeholder="Gửi đến"></hrm-combobox-dialog>
+    <br>
+    {{tmpData}}
+    <br>
+    <br>
+    <br>
+    <hrm-combobox-dialog [(ngModel)]="tmpData1" id="test1" value="1021" multi="true" keyname="name" keyvalue="id"
+      placeholder="Gửi đến 1"></hrm-combobox-dialog>
+    <br>
+    {{tmpData1}}-->
+    <div class="function">      
       <ng-container *ngFor="let item of listFunction">
         <ng-container *ngIf="item && item.Functions && item.Functions[0]">
-          <div class="function-head">
-            <ons-icon class={{item?.Icon}}></ons-icon>
-            <div class="title">{{item?.Header || "&nbsp;"}}</div>
+          <div class="function-head">            
+            <div class="img" [ngStyle]="{'background-color': item?.Color}"><img src="{{item?.Icon}}"></div>
+            <div class="title" [ngStyle]="{'background-color': item?.Color}"><P>{{item?.Header || "&nbsp;"}}</P></div>
           </div>
           <div class="function-body">
             <ng-container *ngFor="let itemSmall of item.Functions">
               <div class="function-body__card">
                 <div class="description">{{itemSmall?.Title}}</div>
                 <div class="title">
-                  <div class="number" [ngStyle]="{'color': item?.Color}">{{itemSmall?.Number}}</div>
-                  <ons-icon class="{{itemSmall?.Icon}}"></ons-icon>
+                  <div class="img"><img src="{{itemSmall?.Icon}}"></div>
+                  <div class="number"><span>{{itemSmall?.Number}}</span>/{{itemSmall?.Number}}</div>                  
                 </div>
               </div>
             </ng-container>
           </div>
         </ng-container>
-      </ng-container>
-      <button (click)="eventOnPushList()" style="margin-right: 20px;">Danh sách</button>
-      <button (click)="eventOnPushAddNew()" style="margin-right: 20px;">Thêm phiếu</button>
-      <button (click)="eventOnPushReview()" style="margin-right: 20px;">Xem phiếu</button>
-      <button (click)="eventOnPushAddRequestFeedback()" style="margin-right: 20px;">Thêm mới xin phản hồi</button>
-      <button (click)="eventOnPushDetailRequestFeedback()" style="margin-right: 20px;">Chi tiết phản hồi yêu
-        cầu</button>
+      </ng-container> 
+         
     </div>
-  </div>
+  </div>  
 </ons-page>

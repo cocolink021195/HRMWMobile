@@ -137,7 +137,7 @@ ons-toolbar.toolbar {
   }
 
   .left {
-    width: 90px;
+    width: 140px;
 
     ons-icon {
       float: left;
@@ -161,9 +161,9 @@ ons-toolbar.toolbar {
     }
     .noti{     
       text-align: center;
-      background-size: 40px 40px;
-      background-repeat: no-repeat;
-      background-position: top 1px right 0px;
+      background-size: 35px 35px;     
+      background-position: top 4px right 0px;
+      background-repeat: no-repeat;      
       height: 45px;
       span{
         color: #fff;
@@ -179,11 +179,7 @@ ons-toolbar.toolbar {
         font-size: 0.8rem;
         text-align: center;
       }    
-    }
-    .noti.noti-home{      
-      background-size: 35px 35px;     
-      background-position: top 4px right 0px;        
-    }
+    }    
   }
   .back-button {
     padding-left: 0;
@@ -286,11 +282,10 @@ ons-page{
 }
 
 .function {
-  margin: 0 16px 0 16px;
-
+  margin: 0 16px 16px 16px;  
   .function-head {
     font-weight: 600;
-    margin: 10px 0 15px 0;
+    margin: 26px 0 26px 0;
 
     ons-icon {
       margin: 0 10px 0 0;
@@ -303,16 +298,38 @@ ons-page{
       border-radius: 50%;
       text-align: center;
     }
-    .title {
-      padding: 5px 0 0 0;
-      color: var(--color-primary-6);
+    .img{
+      width: 50px;
+      height: 50px;
+      float: left;
+      background-color: #FFCDD2;
+      border-radius: 50%;
+      margin-top: -10px;
+      img{
+        width: 80%;
+        height: 80%;
+        margin-top: 10%;
+        margin-left: 10%;
+        border-radius: 50%;
+      }
+    }
+    .title {      
+      padding: 8px 0 8px 0;      
+      background-color: #FFCDD2;
+      border-radius: 5px;
+      text-indent: 10px;
+      line-height: 16px;
+      margin-left: 20px;
+      P{
+        @extend .t-ellipsis;
+        margin: 0px;
+      }
     }
   }
 
   .function-body {
     display: grid;   
-    grid-gap: 15px;
-    margin: 0 0 30px 0;
+    grid-gap: 15px;    
     grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));     
   }  
   @include respond-above(sm) {
@@ -327,31 +344,37 @@ ons-page{
     display: grid;
     grid-template-rows: 30px auto;
     box-shadow: 0px 3px 5px 1px rgba(0, 0, 0, 0.12);
-    background-color: var(--color-primary-7);
+    background-color: #fff;
     .title {
       display: grid;
-      grid-template-columns: auto 35px;
-
-      ons-icon {
-        line-height: 1;
-        font-size: 1.7rem;
-        margin: auto 0 0 0;
-        padding: 0 0 5px 0;
-        text-align: center;
-        color: var(--color-primary-5);
+      grid-template-columns: 35px auto;      
+      .img{
+        border-radius: 50%;   
+        height: 35px; 
+        background-color: #ccc;   
+        text-align: center; 
+        margin: auto 0 0 0;  
+        img{
+          width: 100%;
+          height: 100%;
+          overflow: hidden;
+          border-radius: 50%;
+        }
       }
       .number {
         font-size: 1.2rem;
-        margin: auto 0 0 0;                
+        margin: auto 0 0 10px;   
+        text-align: right;             
         @extend .t-ellipsis;
+        span{
+          color: #C93132;
+        }
       }
     }
-
     .description {
       font-size: 1rem;
       max-height: 40px;
-      overflow: hidden;
-      font-style: italic;
+      overflow: hidden;      
       @extend .t-ellipsis;
     }
   }
@@ -737,6 +760,10 @@ ons-fab.fab, ons-speed-dial-item.fab, button.fab{
     transform: rotate(360deg);
   }
 }
+.content-home{
+  background-color: #fff!important; 
+  background-image: linear-gradient(to top, #298CFF , #ffffff)!important; 
+}
 .content, .toolbar-button, .textarea--transparent{
   font-size: 0.9rem;
 }
@@ -855,12 +882,10 @@ ons-fab.fab, ons-speed-dial-item.fab, button.fab{
         p{
           color: #fff;  
           line-height: 16px;
-          height: 16px;
-          overflow: hidden;     
+          height: 16px;            
           margin: 0;     
           width: 100%;
-          white-space: nowrap;         
-          text-overflow: ellipsis; 
+          @extend .t-ellipsis;
         } 
       }      
       ons-icon{

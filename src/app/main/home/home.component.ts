@@ -27,32 +27,34 @@ export class HomeComponent implements OnInit {
 
   loadFunction() {
     this.listFunction = [{
-      Header: 'Cho Phản Hồi',
-      Icon: 'fsap fsap-outbox',
-      Color: 'var(--color-primary-6)',
+      Header: 'CHO PHẢN HỒI',
+      Icon: '../../../assets/images/give-feedback.png',
+      Color: '#FFCDD2',      
       Functions: [
-        { Title: 'Thank You', Number: 40, Icon: 'fsap fsap-add-favorite', Background: '' },
-        { Title: 'Phiếu Con Gấu', Number: 36, Icon: 'fsap fsap-discussion', Background: '' },
-        { Title: 'Phản Hồi Khác', Number: 33, Icon: 'fsap fsap-discussion-2', Background: '' }
+        { Title: 'Thank you note', Number: 40, Icon: '../../../assets/images/heart.png', Background: '' },
+        { Title: 'Phiếu con gấu', Number: 36, Icon: '../../../assets/images/bear.png', Background: '' },
+        { Title: 'Set up cart', Number: 33, Icon: '../../../assets/images/sun.png', Background: '' },
+        { Title: 'Phản hồi bất kỳ', Number: 33, Icon: '../../../assets/images/reply.png', Background: '' }
       ]
     },
     {
-      Header: 'Nhận Phản Hồi',
-      Icon: 'fsap fsap-inbox',
-      Color: 'var(--color-primary-6)',
+      Header: 'NHẬN PHẢN HỒI',
+      Icon: '../../../assets/images/receive-feedback.png',
+      Color: '#FFFCCE',      
       Functions: [
-        { Title: 'Thank You', Number: 56, Icon: 'fsap fsap-add-favorite', Background: '' },
-        { Title: 'Phiếu Con Gấu', Number: 80, Icon: 'fsap fsap-discussion', Background: '' },
-        { Title: 'Phản Hồi Khác', Number: 45, Icon: 'fsap fsap-discussion-2', Background: '' }
+        { Title: 'Thank you note', Number: 40, Icon: '../../../assets/images/heart.png', Background: '' },
+        { Title: 'Phiếu con gấu', Number: 36, Icon: '../../../assets/images/bear.png', Background: '' },
+        { Title: 'Set up cart', Number: 33, Icon: '../../../assets/images/sun.png', Background: '' },
+        { Title: 'Phản hồi bất kỳ', Number: 33, Icon: '../../../assets/images/reply.png', Background: '' }
       ]
     },
     {
-      Header: 'Yêu Cầu Cho Phản Hồi',
-      Icon: 'fsap fsap-email',
-      Color: 'var(--color-primary-6)',
+      Header: 'CHỦ ĐỘNG XIN PHẢN HỒI',
+      Icon: '../../../assets/images/please-feedback.png',
+      Color: '#CEFFD3',      
       Functions: [
-        { Title: 'Xin Phản Hồi', Number: 45, Icon: 'fsap fsap-question-mark', Background: '' },
-        { Title: 'Phản Hồi Yêu Cầu', Number: 68, Icon: 'fsap fsap-approvals', Background: '' }
+        { Title: 'Xin Phản Hồi', Number: 45, Icon: '../../../assets/images/pen-left.png', Background: '' },
+        { Title: 'Phản Hồi Yêu Cầu', Number: 68, Icon: '../../../assets/images/pen-right.png', Background: '' }
       ]
     }]
   }
