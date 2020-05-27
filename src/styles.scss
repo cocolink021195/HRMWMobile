@@ -126,9 +126,10 @@ ons-alert-dialog {
 ons-toolbar.toolbar {
   width: auto;
   padding: 0 16px;
-  background-image: none;
-  background-color: var(--color-primary-6);
-
+  background-image: url(/assets/images/logo.png);
+  background-position: top 2px left 35px;
+  background-color: var(--color-primary-6);  
+  background-size: 100px 40px;   
   .center {
     width: calc(100% - 100px);
     @extend .t-ellipsis;
@@ -136,7 +137,7 @@ ons-toolbar.toolbar {
   }
 
   .left {
-    width: 50px;
+    width: 90px;
 
     ons-icon {
       float: left;
@@ -155,12 +156,36 @@ ons-toolbar.toolbar {
 
   .right {
     width: 50px;
-
+    position: relative;     
     ons-icon {
       float: right;
     }
+    .noti{     
+      text-align: center;
+      background-size: 40px 40px;
+      background-repeat: no-repeat;
+      background-position: top 1px right 0px;
+      height: 45px;
+      span{
+        color: #fff;
+        background-color: red;
+        padding: 3px;
+        border-radius: 12px;
+        position: absolute;
+        top: 2px;
+        right: -5px;    
+        height: 20px;
+        min-width: 20px;
+        line-height: 16px;
+        font-size: 0.8rem;
+        text-align: center;
+      }    
+    }
+    .noti.noti-home{      
+      background-size: 35px 35px;     
+      background-position: top 4px right 0px;        
+    }
   }
-
   .back-button {
     padding-left: 0;
   }
@@ -174,7 +199,7 @@ ons-toolbar.toolbar {
 ons-toolbar-button>ons-icon[icon*="md-"],
 ons-toolbar-button>ons-icon[icon*="fa-"],
 ons-toolbar-button>ons-icon[icon*="ion-"] {
-  font-size: 1.2rem;
+  font-size: 1.3rem;
 }
 
 ons-page {
