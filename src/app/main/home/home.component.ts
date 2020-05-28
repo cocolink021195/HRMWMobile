@@ -29,11 +29,11 @@ export class HomeComponent implements OnInit {
   }
 
   loadFunction() {
-    this.hrmApiService.postSV('HrmMobileWeb/home/load/functionlist', 'FUNCTION_ID')
-      .subscribe(data => {
-        console.log('loadFunction: ', data);
+    // this.hrmApiService.postSV('HrmMobileWeb/home/load/functionlist', 'FUNCTION_ID')
+    //   .subscribe(data => {
+    //     console.log('loadFunction: ', data);
 
-      })
+    //   })
 
     this.listFunction = [{
       Header: 'CHO PHẢN HỒI',
@@ -79,6 +79,8 @@ export class HomeComponent implements OnInit {
 
 
   eventOpenMenu() {
+    
+    console.log('eventOpenMenu')
     this.navigatorService.myMenu();
   }
 

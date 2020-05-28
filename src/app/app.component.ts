@@ -13,7 +13,7 @@ import { takeUntil } from 'rxjs/operators';
   templateUrl: './app.component.html'
 })
 export class AppComponent {
-  isActiveSideBar = false;
+  isActiveSideBar = true;
   sideBar = SideBarComponent;
   contentPage: any;
 
@@ -32,6 +32,7 @@ export class AppComponent {
   }
 
   ngOnInit() {
+    console.error('KHOA isActiveSideBar = TRUE')
   }
 
   ngAfterViewInit() {
@@ -56,6 +57,7 @@ export class AppComponent {
 
   //#region REDIRECT
   myMenu() {
+    console.log('myMenu')
     if (this.splitter.nativeElement.side) {
       if (this.splitter.nativeElement.side.isOpen) {
         this.splitter.nativeElement.side.close();
