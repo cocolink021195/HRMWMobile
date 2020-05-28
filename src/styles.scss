@@ -137,7 +137,7 @@ ons-toolbar.toolbar {
   }
 
   .left {
-    width: 140px;
+    width: 150px;
 
     ons-icon {
       float: left;
@@ -254,7 +254,6 @@ ons-page{
   grid-gap: 45px 10px;
   text-align: center;
   margin: 30px 16px 0 16px;
-
   .home-item {
     &__icon ons-icon {
       opacity: .8;
@@ -546,7 +545,6 @@ ons-fab.fab, ons-speed-dial-item.fab, button.fab{
         @extend .t-ellipsis;
       }
     }
-
     .menu {
       overflow: initial;
 
@@ -571,28 +569,30 @@ ons-fab.fab, ons-speed-dial-item.fab, button.fab{
 
     .logout {
       opacity: .5;
-
       ons-list-item {
         height: 100%;
         padding: 0;
-
         .center {
           background-image: none;
           justify-content: center;
           place-content: center;
+          a, a:visited, a:hover{
+            text-decoration: none;
+          }
+          a, i{
+            padding-left: 5px;
+            padding-right: 5px;
+          }
         }
       }
-
       span {
         padding-left: 15px;
         font-size: 1.1rem;
       }
     }
-
     .footer {
       overflow: hidden;
       margin-top: 10px;
-
       .company-name {
         @extend .t-ellipsis;
         text-align: center;
@@ -600,7 +600,6 @@ ons-fab.fab, ons-speed-dial-item.fab, button.fab{
         color: var(--color-primary-0);
         font-size: .7rem;
       }
-
       .database {
         margin: 0 10px;
         font-size: .6rem;
