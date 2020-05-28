@@ -33,6 +33,8 @@ import { AuthenticationService } from './services/authentication/authentication.
     NavigatorService,
     NotificationsService,
     AuthenticationService,
+
+
   ],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA

@@ -5,6 +5,7 @@ import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { SideBarComponent } from './side-bar/side-bar.component';
 import { ListComponent } from './list/list.component';
+import { UserProfileComponent } from './user-profile/user-profile.component';
 
 @NgModule({
   imports: [
@@ -16,6 +17,7 @@ import { ListComponent } from './list/list.component';
     HomeComponent,
     SideBarComponent,
     ListComponent,
+    UserProfileComponent,
 
   ],
   entryComponents: [
@@ -23,6 +25,7 @@ import { ListComponent } from './list/list.component';
     HomeComponent,
     SideBarComponent,
     ListComponent,
+    UserProfileComponent,
 
   ],
   exports: [
@@ -30,6 +33,7 @@ import { ListComponent } from './list/list.component';
     HomeComponent,
     SideBarComponent,
     ListComponent,
+    UserProfileComponent,
 
   ],
   providers: [],
