@@ -37,8 +37,8 @@
       <ng-container *ngFor="let item of listFunction">
         <ng-container *ngIf="item && item.Functions && item.Functions[0]">
           <div class="function-head">            
-            <div class="img" [ngStyle]="{'background-color': item?.Color}"><img src="{{item?.Icon}}"></div>
-            <div class="title" [ngStyle]="{'background-color': item?.Color}"><P>{{item?.Header || "&nbsp;"}}</P></div>
+            <div class="img" [ngStyle]="{'background-color': item?.Color}" style="border: 1px #f2f2f2 solid;"><img src="{{item?.Icon}}"></div>
+            <div class="title" [ngStyle]="{'background-color': item?.Color}" style="border: 1px #f2f2f2 solid;"><P>{{item?.Header || "&nbsp;"}}</P></div>
           </div>
           <div class="function-body">
             <ng-container *ngFor="let itemSmall of item.Functions">

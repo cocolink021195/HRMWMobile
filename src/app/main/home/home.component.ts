@@ -49,7 +49,7 @@ export class HomeComponent implements OnInit {
     {
       Header: 'NHẬN PHẢN HỒI',
       Icon: '../../../assets/images/receive-feedback.png',
-      Color: '#FFFCCE',
+      Color: '#33B579',
       Functions: [
         { Title: 'Thank you note', Number: 40, Icon: '../../../assets/images/heart.png', Background: '' },
         { Title: 'Phiếu con gấu', Number: 36, Icon: '../../../assets/images/bear.png', Background: '' },
@@ -60,7 +60,7 @@ export class HomeComponent implements OnInit {
     {
       Header: 'CHỦ ĐỘNG XIN PHẢN HỒI',
       Icon: '../../../assets/images/please-feedback.png',
-      Color: '#CEFFD3',
+      Color: '#FDF16B',
       Functions: [
         { Title: 'Xin Phản Hồi', Number: 45, Icon: '../../../assets/images/pen-left.png', Background: '' },
         { Title: 'Phản Hồi Yêu Cầu', Number: 68, Icon: '../../../assets/images/pen-right.png', Background: '' }

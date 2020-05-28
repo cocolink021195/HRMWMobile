@@ -11,7 +11,7 @@ const routes: Routes = [
   {
     path: '',
     component: HomeComponent,
-    canActivate: [AuthGuard]
+    // canActivate: [AuthGuard]
   },
   {
     path: 'list',
@@ -26,7 +26,7 @@ const routes: Routes = [
   {
     path: 'fbs',
     loadChildren: () => import('./modules/feedback-system/feedback-system.module').then(m => m.FeedbackSystemModule),
-    canLoad: [AuthGuard]
+    // canLoad: [AuthGuard]
   },
   { path: 'login', component: LoginComponent },
   { path: '**', pathMatch: 'full', redirectTo: '/' },

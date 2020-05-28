@@ -223,7 +223,98 @@ ons-page {
 hrm-combobox-dialog .mat-form-field {
   width: 100%;
 }
-
+/*#region login*/
+/*#region profile*/
+.profile{
+  .content{
+    padding: 0px 16px 16px 16px;
+  }
+  background-color: #FCFCFC;
+  .profile-sidebar {
+    padding: 20px 0 10px 0;
+    background: #fff;
+  }  
+  .profile-userpic{
+    text-align: center;
+    img {
+      float: none;
+      margin: 0 auto;
+      width: 40%;
+      height: 40%;
+      -webkit-border-radius: 50% !important;
+      -moz-border-radius: 50% !important;
+      border-radius: 50% !important;
+    }
+  } 
+  .profile-usertitle {
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  .profile-usertitle-name {
+    color: var(--color-primary-6);
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 7px;
+  }
+  
+  .profile-usertitle-job, .profile-usertitle-id {    
+    color: var(--color-primary-6);
+    font-size: 12px;
+    font-weight: 600;
+    margin-bottom: 15px;
+  }
+  .profile-usermenu {
+    margin-top: 30px;
+    ul{
+      padding: 0;
+      margin: 0;
+      list-style: none;
+      li{
+        border-bottom: 1px solid #f0f4f7;
+        a {
+          color: #93a3b5;
+          font-size: 14px;
+          font-weight: 400;
+          position: relative;
+          display: block;
+          padding: 10px 15px;
+          i {
+            margin-right: 8px;
+            font-size: 14px;
+          }
+        }
+        a:hover {
+          background-color: #fafcfd;
+          color: #5b9bd1;
+        }
+      }
+      li:last-child {
+        border-bottom: none;
+      }
+      li.active {
+        border-bottom: none;
+        a {
+          color: #5b9bd1;
+          background-color: #f6f9fb;
+          border-left: 2px solid #5b9bd1;
+          margin-left: -2px;
+        }
+      }
+    }
+    ul li:last-child {
+      border-bottom: none;
+    }
+  } 
+  
+  /* Profile Content */
+  .profile-content {
+    padding: 20px;
+    background: #fff;
+    min-height: 460px;
+  }
+}
+/*#endregion*/
 .login {
   .form-main {
     top: 40%;
@@ -238,26 +329,75 @@ hrm-combobox-dialog .mat-form-field {
     background-position: center top;
     background-repeat: no-repeat;
   }
-
-  .mat-form-field,
-  .button {
+  .mat-form-field
+  {
     text-align: center;
-    width: 80%;
+    width: 85%;
     max-width: 500px;
     min-width: 150px;
+    .mat-form-field-wrapper{
+      border: 1px #2380AE solid;
+      margin-bottom: 1.25em;
+      padding-bottom: 5px;
+      border-radius: 5px;
+      padding-top: 5px;
+      .mat-form-field-underline{
+        display: none;
+      }
+      .mat-icon{
+        margin-left: 10px;
+        color: #2380AE;
+      }
+    }
   }
-
+  .button {
+    text-align: center;
+    width: 85%;
+    max-width: 500px;
+    min-width: 150px;
+  }  
   .mat-form-field-infix {
     border-top: 0;
   }
 
   .button {
     margin: 15px 0 0 0;
-    border-radius: 999px;
-    background: linear-gradient(200deg, rgba(57, 161, 247, 1) 0%, rgba(166, 116, 251, 1) 100%);
+    border-radius: 5px;
+    background-color: #048CC8;   
+  }
+  .footer{
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+    width: 100%;
+    .languages{
+      text-align: center;
+      padding: 10px;
+      margin-bottom: 10px;      
+      a{
+        border-right: 2px #BDBDBD solid;  
+        padding: 5px 10px;
+        color: #BDBDBD;
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 18px;
+      }
+      a + a {
+        border: none;
+      }
+      a.active{
+        color: #048CC8;
+      }
+    }
+    .copyright{
+      background-color: #048CC8;
+      text-align: center;
+      padding: 8px 10px;
+      color: #fff;
+    }
   }
 }
-
+/*#endregion*/
 .home {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
@@ -313,7 +453,7 @@ hrm-combobox-dialog .mat-form-field {
       float: left;
       background-color: #FFCDD2;
       border-radius: 50%;
-      margin-top: -10px;
+      margin-top: -9px;
       img{
         width: 80%;
         height: 80%;
@@ -361,8 +501,7 @@ hrm-combobox-dialog .mat-form-field {
       grid-template-columns: 35px auto;      
       .img{
         border-radius: 50%;   
-        height: 35px; 
-        background-color: #ccc;   
+        height: 35px;          
         text-align: center; 
         margin: auto 0 0 0;  
         img{
@@ -376,7 +515,8 @@ hrm-combobox-dialog .mat-form-field {
       .number {
         font-size: 1.2rem;
         margin: auto 0 0 10px;   
-        text-align: right;             
+        text-align: right; 
+        color: #2A4E6F;            
         @extend .t-ellipsis;
         span{
           color: #C93132;
@@ -863,7 +1003,7 @@ button.fab {
 
 .content-home{
   background-color: #fff!important; 
-  background-image: linear-gradient(to top, #298CFF , #ffffff)!important; 
+  background-image: linear-gradient(to top, #00B050 , #ffffff)!important; 
 }
 .content, .toolbar-button, .textarea--transparent{
   font-size: 0.9rem;
