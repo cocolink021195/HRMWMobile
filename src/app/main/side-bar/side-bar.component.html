@@ -1,37 +1,26 @@
 <div class="page__background side-bar__background"></div>
 <div class="content side-bar__content">
   <div class="avatar t-center pt-25">
-    <img src="../../../assets/images/NONAL.png" />    
+    <img src="../../../assets/images/NONAL.png" />
     <div class="title">
       <span class="t-13">
-        Trần Thị Mỹ Anh
+        {{currentUser && currentUser.EmployeeFullName ? currentUser.EmployeeFullName : ""}}
       </span>
       <br />
       <span class="t-7 text-center">
-        <i><span>ttmanh</span></i>
+        <i><span>{{currentUser && currentUser.UserName ? currentUser.UserName : ""}}</span></i>
       </span>
     </div>
   </div>
 
   <ons-list class="menu" modifier="noborder">
-      <ons-list-item modifier="chevron longdivider" tappable>
-      <!--<div class="left">
-        <ons-icon icon="md-home" class="list-item__icon"></ons-icon>
-      </div>-->
+    <ons-list-item modifier="chevron longdivider" tappable (click)="eventDashboard()">
       <div class="center">
         Trang chủ
       </div>
     </ons-list-item>
-    <ons-list-item modifier="chevron longdivider" tappable>
-      <!--<div class="left">
-        <ons-icon icon="md-list" class="list-item__icon"></ons-icon>
-      </div>-->
-      <div class="center">
-        Danh sách phản hồi
-      </div>     
-    </ons-list-item>
   </ons-list>
-  
+
 
   <ons-list class="logout" modifier="noborder">
     <ons-list-item tappable>

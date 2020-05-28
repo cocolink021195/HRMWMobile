@@ -1,3 +1,5 @@
+import { environment } from 'src/environments/environment';
+import { HrmApiService } from './../../core/services/hrm-api/hrm-api.service';
 import { Component, OnInit } from '@angular/core';
 import { OnsNavigator } from 'ngx-onsenui';
 import { NavigatorService } from 'src/app/core/services/navigator/navigator.service';
@@ -18,6 +20,7 @@ export class HomeComponent implements OnInit {
 
   constructor(
     private navigator: OnsNavigator,
+    private hrmApiService: HrmApiService,
     private navigatorService: NavigatorService
   ) { }
 
@@ -26,10 +29,16 @@ export class HomeComponent implements OnInit {
   }
 
   loadFunction() {
+    this.hrmApiService.postSV('HrmMobileWeb/home/load/functionlist', 'FUNCTION_ID')
+      .subscribe(data => {
+        console.log('loadFunction: ', data);
+
+      })
+
     this.listFunction = [{
       Header: 'CHO PHẢN HỒI',
       Icon: '../../../assets/images/give-feedback.png',
-      Color: '#FFCDD2',      
+      Color: '#FFCDD2',
       Functions: [
         { Title: 'Thank you note', Number: 40, Icon: '../../../assets/images/heart.png', Background: '' },
         { Title: 'Phiếu con gấu', Number: 36, Icon: '../../../assets/images/bear.png', Background: '' },
@@ -40,7 +49,7 @@ export class HomeComponent implements OnInit {
     {
       Header: 'NHẬN PHẢN HỒI',
       Icon: '../../../assets/images/receive-feedback.png',
-      Color: '#FFFCCE',      
+      Color: '#FFFCCE',
       Functions: [
         { Title: 'Thank you note', Number: 40, Icon: '../../../assets/images/heart.png', Background: '' },
         { Title: 'Phiếu con gấu', Number: 36, Icon: '../../../assets/images/bear.png', Background: '' },
@@ -51,13 +60,23 @@ export class HomeComponent implements OnInit {
     {
       Header: 'CHỦ ĐỘNG XIN PHẢN HỒI',
       Icon: '../../../assets/images/please-feedback.png',
-      Color: '#CEFFD3',      
+      Color: '#CEFFD3',
       Functions: [
         { Title: 'Xin Phản Hồi', Number: 45, Icon: '../../../assets/images/pen-left.png', Background: '' },
         { Title: 'Phản Hồi Yêu Cầu', Number: 68, Icon: '../../../assets/images/pen-right.png', Background: '' }
       ]
     }]
   }
+
+
+
+
+
+
+
+
+
+
 
   eventOpenMenu() {
     this.navigatorService.myMenu();

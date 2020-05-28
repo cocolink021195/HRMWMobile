@@ -10,6 +10,7 @@ import { MatRadioModule } from '@angular/material/radio';
 
 
 import { HrmComboboxDialogComponent } from './controls/hrm-combobox-dialog/hrm-combobox-dialog.component';
+import { GhostListComponent } from './controls/ghost-list/ghost-list.component';
 
 
 
@@ -29,13 +30,18 @@ import { HrmComboboxDialogComponent } from './controls/hrm-combobox-dialog/hrm-c
   ],
   declarations: [
     HrmComboboxDialogComponent,
+    GhostListComponent,
 
 
 
     
   ],
   entryComponents: [
-    HrmComboboxDialogComponent
+    HrmComboboxDialogComponent,
+    GhostListComponent,
+
+
+
   ],
   exports: [
     CommonModule,
@@ -49,6 +55,7 @@ import { HrmComboboxDialogComponent } from './controls/hrm-combobox-dialog/hrm-c
 
 
     HrmComboboxDialogComponent,
+    GhostListComponent,
 
 
 

@@ -39,6 +39,13 @@
               <span class="_id">{{item[keyvalue]}}</span>
             </label>
           </ons-list-item>
+
+
+          <ons-list-item *ngIf="true == isSmallIconLoading">
+            <div class="small-loading">
+              <ons-progress-circular indeterminate></ons-progress-circular>
+            </div>
+          </ons-list-item>
         </ons-list>
 
 

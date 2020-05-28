@@ -6,6 +6,7 @@ import { AppRoutingModule } from '../app-routing.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { MainModule } from '../main/main.module';
 import { HrmApiService } from './services/hrm-api/hrm-api.service';
+import { SettingService } from './services/setting/setting.service';
 import { NavigatorService } from './services/navigator/navigator.service';
 import { NotificationsService } from './services/notifications/notifications.service';
 import { AuthenticationService } from './services/authentication/authentication.service';
@@ -28,9 +29,12 @@ import { AuthenticationService } from './services/authentication/authentication.
   ],
   providers: [
     HrmApiService,
+    SettingService,
     NavigatorService,
     NotificationsService,
     AuthenticationService,
+
+
   ],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA

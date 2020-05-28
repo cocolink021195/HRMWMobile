@@ -5,69 +5,50 @@
     </div>
     <div class="center"> {{title}} </div>
     <div class="right">
-      <div class="noti" style="background-image: url(/assets/images/heart.png);">        
+      <div class="noti" style="background-image: url(/assets/images/heart.png);">
       </div>
     </div>
   </ons-toolbar>
   <div class="content">
     <div class="search-bar">
-      <ons-search-input placeholder="Tìm kiếm"></ons-search-input>
+      <ons-search-input (keyup)="eventOnSearch($event.target.value)" placeholder="Tìm kiếm"></ons-search-input>
       <ons-icon class="filter" icon="fa-sliders-h" (click)="modalFilter.show()"></ons-icon>
     </div>
 
     <div class="list-content">
-      <ons-list class="bg-img--none">
-        <!-- LIST  -->
-        <ons-list-item class="list-item loading">
-          <div class="left">
-            <img class="thumbnail" src="../../../assets/images/NONAL.png">
+      <ons-list class="bg-img--none last-child-bg-img--none">
+
+        <ng-template #loadListItem></ng-template>
+        <ng-template #loadListGhost></ng-template>
+
+        <ng-template *ngIf="isDataNotFound">
+          <div class="empty-list">
+            {{env.Notification.DataNotFound}}
           </div>
-          <div class="center">            
-            <span class="title">loading...</span>  
-            <span class="subtitle">loading...</span>            
-            <div class="bottom">
-              <!--<span class="date">loading...</span>-->
-              <span class="status">loading...</span>
-            </div>
-          </div>  
-        </ons-list-item>
-        <ons-list-item class="list-item list-item-viewed">
-          <div class="left">
-            <img class="thumbnail" src="http://placekitten.com/g/50/50">
-          </div>
-          <div class="center">
-            <div class="title">Nguyễn Văn Hùng<span class="date-sent">22/05/2020</span></div>  
-            <span class="subtitle">Cảm ơn bạn đã hỗ trợ hoàn thành công việc chuẩn bị tài liệu</span>            
-            <div class="bottom">
-              <span class="date">22/05/2020</span>
-              <span class="status">Đã xem</span>
-            </div>
-          </div>  
-        </ons-list-item>
-        <ons-list-item class="list-item list-item-not-view">
-          <div class="left">
-            <img class="thumbnail" src="http://placekitten.com/g/50/50">
-          </div>
-          <div class="center">
-            <div class="title">Nguyễn Văn Hùng<span class="date-sent">22/05/2020</span></div> 
-            <span class="subtitle">Cảm ơn bạn đã hỗ trợ hoàn thành công việc chuẩn bị tài liệu</span>            
-            <div class="bottom">
-              <span class="date">22/05/2020</span>
-              <span class="status">Chưa xem</span>
-            </div>
-          </div>  
-        </ons-list-item>
+        </ng-template>
+
+
+        <div class="loading" *ngIf="false == isLoadingData">
+          <ons-progress-circular indeterminate></ons-progress-circular>
+        </div>
+
       </ons-list>
     </div>
     <ons-speed-dial position="right bottom" direction="up">
-      <ons-fab><ons-icon icon="md-plus"></ons-icon></ons-fab>      
+      <ons-fab>
+        <ons-icon icon="md-plus"></ons-icon>
+      </ons-fab>
     </ons-speed-dial>
   </div>
 </ons-page>
 
+
+
 <!-- MODAL -->
 <ons-alert-dialog animation="default" cancelable #modalFilter>
-  <div class="alert-dialog-title"> <ons-icon class="fsap fsap-add-filter"></ons-icon>Lọc dữ liệu </div>
+  <div class="alert-dialog-title">
+    <ons-icon class="fsap fsap-add-filter"></ons-icon>Lọc dữ liệu
+  </div>
   <div class="alert-dialog-content">
     <div class="form-item">
       <span class="form-item-left">Ngày ghi nhận</span>
@@ -75,18 +56,18 @@
         <mat-form-field>
           <mat-label>Tuần này</mat-label>
           <mat-select></mat-select>
-        </mat-form-field>       
+        </mat-form-field>
       </div>
-    </div>     
+    </div>
     <div class="form-item">
       <span class="form-item-left">Tình trạng</span>
       <div class="form-item-right">
         <mat-form-field>
           <mat-label>Chưa xem</mat-label>
           <mat-select></mat-select>
-        </mat-form-field>        
+        </mat-form-field>
       </div>
-    </div>        
+    </div>
   </div>
   <div class="alert-dialog-footer alert-dialog-footer--rowfooter">
     <ons-alert-dialog-button class="alert-dialog-button--rowfooter alert-dialog-button" style="position: relative;">
@@ -97,6 +78,6 @@
     </ons-alert-dialog-button>
     <ons-alert-dialog-button class="alert-dialog-button--rowfooter alert-dialog-button" style="position: relative;">
       <ons-icon class="fsap fsap-decline"></ons-icon>Huỷ
-    </ons-alert-dialog-button>    
+    </ons-alert-dialog-button>
   </div>
 </ons-alert-dialog>
