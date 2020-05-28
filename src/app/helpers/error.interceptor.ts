@@ -15,10 +15,10 @@ export class ErrorInterceptor implements HttpInterceptor {
     return next.handle(request).pipe(catchError(err => {
       if (err.status === 401) {
         // auto logout if 401 response returned from api
-        // this.navigatorService.goToLogin();
-        console.error('LOGINNNNNNNNNNNNN');
+        this.navigatorService.goToLogin();
       }
       const error = err.message || err.statusText;
+      console.log('ErrorInterceptor: ', error);
       return throwError(error);
     }));
   }

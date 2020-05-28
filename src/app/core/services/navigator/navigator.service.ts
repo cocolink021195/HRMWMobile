@@ -4,6 +4,8 @@ import { Subject, Observable } from 'rxjs';
 @Injectable()
 export class NavigatorService {
   private menu = new Subject();
+  private naviHome = new Subject();
+  private naviLogin = new Subject();
   private valueShowModal = new Subject();
   private valueHideModal = new Subject();
 
@@ -11,6 +13,14 @@ export class NavigatorService {
 
   get menu$(): Observable<any> {
     return this.menu.asObservable();
+  }
+
+  get naviHome$(): Observable<any> {
+    return this.naviHome.asObservable();
+  }
+
+  get naviLogin$(): Observable<any> {
+    return this.naviLogin.asObservable();
   }
 
   get getShowModal$(): Observable<any> {
@@ -23,6 +33,14 @@ export class NavigatorService {
 
   myMenu() {
     this.menu.next();
+  }
+  
+  goToHome() {
+    this.naviHome.next();
+  }
+
+  goToLogin() {
+    this.naviLogin.next();
   }
 
   showScreenLoading() {

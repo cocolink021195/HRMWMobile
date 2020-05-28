@@ -128,8 +128,9 @@ ons-toolbar.toolbar {
   padding: 0 16px;
   background-image: url(/assets/images/logo.png);
   background-position: top 2px left 35px;
-  background-color: var(--color-primary-6);  
-  background-size: 100px 40px;   
+  background-color: var(--color-primary-6);
+  background-size: 100px 40px;
+
   .center {
     width: calc(100% - 100px);
     @extend .t-ellipsis;
@@ -156,36 +157,41 @@ ons-toolbar.toolbar {
 
   .right {
     width: 50px;
-    position: relative;     
+    position: relative;
+
     ons-icon {
       float: right;
     }
-    .noti{     
+
+    .noti {
       text-align: center;
       background-size: 40px 40px;
       background-repeat: no-repeat;
       background-position: top 1px right 0px;
       height: 45px;
-      span{
+
+      span {
         color: #fff;
         background-color: red;
         padding: 3px;
         border-radius: 12px;
         position: absolute;
         top: 2px;
-        right: -5px;    
+        right: -5px;
         height: 20px;
         min-width: 20px;
         line-height: 16px;
         font-size: 0.8rem;
         text-align: center;
-      }    
+      }
     }
-    .noti.noti-home{      
-      background-size: 35px 35px;     
-      background-position: top 4px right 0px;        
+
+    .noti.noti-home {
+      background-size: 35px 35px;
+      background-position: top 4px right 0px;
     }
   }
+
   .back-button {
     padding-left: 0;
   }
@@ -578,9 +584,8 @@ button.fab {
   }
 
   &~.list-content {
-    margin-top: 70px;
-    margin: 0 16px;
-    top: 70px;
+    margin: 70px 0 0 0;
+    padding: 0 16px;
   }
 
   .filter {

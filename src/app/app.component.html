@@ -1,9 +1,9 @@
 <ons-splitter #splitter>
-  <ons-splitter-side [page]="sideBar" side="left" width="260px" collapse swipeable>
+  <ons-splitter-side *ngIf="isActiveSideBar" [page]="sideBar" side="left" width="260px" collapse swipeable>
   </ons-splitter-side>
 
   <ons-splitter-content>
-    <ons-navigator [page]="contentPage">
+    <ons-navigator [page]="contentPage" #navi>
       <router-outlet></router-outlet>
     </ons-navigator>
   </ons-splitter-content>

@@ -6,16 +6,22 @@ export const environment = {
   production: false,
 
   HeaderHRM: {
-    ContentType: 'application/json',
-    ApiType: 'hrm',
-    FunctionIDLogin: 'Login',
+    ContentType: 'application/x-www-form-urlencoded',
+    ApiType: 'hrmmobileweb',
     ApplicationID: 'HrmMobileWeb',
-    ApiUrl: 'core/authentication/login',
+    LoginFunctionID: 'Login',
+    CheckSessionFunctionID: 'CheckSession',
+    LoginApiUrl: 'core/authentication/login',
+    CheckSessionApiUrl: 'core/authentication/checkLogin',
+    Language: 'VN'
   },
 
   API: 'http://localhost/HrmMobileWebWS/ApiHandler/Call',
   // API: 'http://113.161.108.195:8080/mobileapi/api/auth/login',
   PageSize: 20,
+  KeyJwt: 'Jwt',
+  KeyHrmJwtID: 'HRM-JWT_ID',
+
 
   Button: {
     Cancel: 'Hủy',
@@ -25,7 +31,9 @@ export const environment = {
   },
   Notification: {
     TitleAlert: 'Cảnh Báo',
-    DataNotFound: 'Không có dữ liệu !!!'
+    DataNotFound: 'Không có dữ liệu !!!',
+    UserNotFound: 'Người dùng không tìm thấy.',
+    Error: 'Lỗi không xác định'
   },
 
 };

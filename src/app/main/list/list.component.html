@@ -5,13 +5,13 @@
     </div>
     <div class="center"> {{title}} </div>
     <div class="right">
-      <div class="noti" style="background-image: url(/assets/images/heart.png);">        
+      <div class="noti" style="background-image: url(/assets/images/heart.png);">
       </div>
     </div>
   </ons-toolbar>
   <div class="content">
     <div class="search-bar">
-      <ons-search-input placeholder="Tìm kiếm"></ons-search-input>
+      <ons-search-input (keyup)="eventOnSearch($event.target.value)" placeholder="Tìm kiếm"></ons-search-input>
       <ons-icon class="filter" icon="fa-sliders-h" (click)="modalFilter.show()"></ons-icon>
     </div>
 
@@ -27,34 +27,12 @@
           </div>
         </ng-template>
 
-        <ons-list-item class="list-item list-item-viewed">
-          <div class="left">
-            <img class="thumbnail" src="http://placekitten.com/g/50/50">
-          </div>
-          <div class="center">
-            <div class="title">Nguyễn Văn Hùng<span class="date-sent">22/05/2020</span></div>
-            <span class="subtitle">Cảm ơn bạn đã hỗ trợ hoàn thành công việc chuẩn bị tài liệu</span>
-            <div class="bottom">
-              <span class="date">22/05/2020</span>
-              <span class="status">Đã xem</span>
-            </div>
-          </div>
-        </ons-list-item>
-        <ons-list-item class="list-item list-item-not-view">
-          <div class="left">
-            <img class="thumbnail" src="http://placekitten.com/g/50/50">
-          </div>
-          <div class="center">
-            <div class="title">Nguyễn Văn Hùng<span class="date-sent">22/05/2020</span></div>
-            <span class="subtitle">Cảm ơn bạn đã hỗ trợ hoàn thành công việc chuẩn bị tài liệu</span>
-            <div class="bottom">
-              <span class="date">22/05/2020</span>
-              <span class="status">Chưa xem</span>
-            </div>
-          </div>
-        </ons-list-item>
-      </ons-list>
 
+        <div class="loading" *ngIf="false == isLoadingData">
+          <ons-progress-circular indeterminate></ons-progress-circular>
+        </div>
+
+      </ons-list>
     </div>
     <ons-speed-dial position="right bottom" direction="up">
       <ons-fab>

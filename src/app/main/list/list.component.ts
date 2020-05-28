@@ -5,7 +5,8 @@ import { Component, OnInit, ViewChild, ViewContainerRef, ComponentRef, Component
 import { GhostListComponent } from 'src/app/shared/controls/ghost-list/ghost-list.component';
 import { ItemListFeedbackComponent } from 'src/app/modules/feedback-system/common/item-list/item-list-feedback/item-list-feedback.component';
 import { Unsubscriber } from 'src/app/hocs/unsubscriber.hoc';
-import { takeUntil } from 'rxjs/operators';
+import { takeUntil, debounceTime } from 'rxjs/operators';
+import { Subject } from 'rxjs';
 
 @Unsubscriber()
 @Component({
@@ -20,10 +21,11 @@ export class ListComponent implements OnInit {
   options = new LoadingParameter();
   componentRef: ComponentRef<any>;
   tempItemsComponent: ComponentFactory<any>;
+  isLoadingData = true;
 
 
 
-
+  private subjectEventSearch: Subject<string> = new Subject();
   @ViewChild('loadListItem', { static: true, read: ViewContainerRef }) loadListItem: ViewContainerRef;
   @ViewChild('loadListGhost', { static: true, read: ViewContainerRef }) loadListGhost: ViewContainerRef;
 
@@ -35,19 +37,20 @@ export class ListComponent implements OnInit {
 
   ngOnInit() {
     this.loadMain();
+    this.initEventOnSearch();
   }
 
   ngOnDestroy() { }
 
   loadMain() {
     this.loadGhostListComponent();
-    this.getList();
+    this.getData();
 
 
 
   }
 
-  getList() {
+  getData() {
     this.listService.getData()
       .pipe(takeUntil((this as any).destroyed$))
       .subscribe(data => {
@@ -55,10 +58,11 @@ export class ListComponent implements OnInit {
           this.options.TotalSize = data.length;
           this.options.isFull =
             (this.options.Page + 1) * this.options.PageSize >= this.options.TotalSize;
-          this.loadListItemComponent(data.splice(0, 10));
+          this.loadListItemComponent(data.splice(0, 20));
         } else {
           this.loadEmptyListItem();
         }
+        this.isLoadingData = false;
       })
   }
 
@@ -88,7 +92,23 @@ export class ListComponent implements OnInit {
     })
   }
 
+  //#region EVENT SEARCH
+  initEventOnSearch() {
+    this.subjectEventSearch.pipe(debounceTime(1000))
+      .pipe(takeUntil((this as any).destroyed$))
+      .subscribe(strSearch => {
+        console.log('initEventOnSearch strSearch: ', strSearch);
+        this.options = new LoadingParameter();
+        this.loadListItem.clear();
+        this.isLoadingData = true;
+        this.getData();
+      });
+  }
 
+  eventOnSearch(strSearch) {
+    if (strSearch) this.subjectEventSearch.next(strSearch);
+  }
+  //#endregion
 
 
 

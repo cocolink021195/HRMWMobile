@@ -1,3 +1,4 @@
+import { AuthGuard } from './helpers/auth.guard';
 import { ListComponent } from './main/list/list.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
@@ -9,17 +10,17 @@ const routes: Routes = [
   {
     path: '',
     component: HomeComponent,
-    // canActivate: [AuthGuard]
+    canActivate: [AuthGuard]
   },
   {
     path: 'list',
     component: ListComponent,
-    // canActivate: [AuthGuard]
+    canActivate: [AuthGuard]
   },
   {
     path: 'fbs',
     loadChildren: () => import('./modules/feedback-system/feedback-system.module').then(m => m.FeedbackSystemModule),
-    // canLoad: [AuthGuard]
+    canLoad: [AuthGuard]
   },
   { path: 'login', component: LoginComponent },
   { path: '**', pathMatch: 'full', redirectTo: '/' },

@@ -1,3 +1,4 @@
+import { HrmApiService } from './../../../core/services/hrm-api/hrm-api.service';
 import { map } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
@@ -7,13 +8,12 @@ export class ListService {
 
 
   constructor(
-    private http: HttpClient
+    private hrmApiService: HrmApiService
+
   ) { }
 
   getData(api = '') {
-    api = 'http://makeup-api.herokuapp.com/api/v1/products.json?product_type=eyeliner';
-    return this.http.get<any>(api)
-      .pipe(map(result => result));
+    return this.hrmApiService.testingPost();
   }
 
 
