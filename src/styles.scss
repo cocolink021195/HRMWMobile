@@ -338,6 +338,8 @@ hrm-combobox-dialog .mat-form-field {
       padding-bottom: 5px;
       border-radius: 5px;
       padding-top: 5px;
+      background-color: #FFF;
+      opacity: 0.6;
       .mat-form-field-underline{
         display: none;
       }
@@ -362,37 +364,45 @@ hrm-combobox-dialog .mat-form-field {
     border-radius: 5px;
     background-color: #048CC8;   
   }
+  .languages{
+    text-align: center;
+    padding: 20px 10px 50px 10px;
+    margin-bottom: 10px;      
+    a{
+      border-right: 2px #BDBDBD solid;  
+      padding: 0px 10px;
+      color: #BDBDBD;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 16px;
+    }
+    a + a {
+      border: none;
+    }
+    a.active{
+      color: #048CC8;
+    }
+    .product{
+      clear: both;      
+      padding-top: 20px;
+      img{
+        width: 50px;
+        height: 50px;
+      }
+    }
+  }
   .footer{
     position: fixed;
     bottom: 0px;
     left: 0px;
-    width: 100%;
-    .languages{
-      text-align: center;
-      padding: 10px;
-      margin-bottom: 10px;      
-      a{
-        border-right: 2px #BDBDBD solid;  
-        padding: 5px 10px;
-        color: #BDBDBD;
-        text-decoration: none;
-        font-weight: bold;
-        font-size: 18px;
-      }
-      a + a {
-        border: none;
-      }
-      a.active{
-        color: #048CC8;
-      }
-    }
+    width: 100%;    
     .copyright{
       background-color: #048CC8;
       text-align: center;
       padding: 8px 10px;
       color: #fff;
     }
-  }
+  }  
 }
 /*#endregion*/
 .home {
@@ -431,7 +441,7 @@ hrm-combobox-dialog .mat-form-field {
   margin: 0 16px 16px 16px;  
   .function-head {
     font-weight: 600;
-    margin: 26px 0 26px 0;
+    margin: 24px 0 24px 0;
 
     ons-icon {
       margin: 0 10px 0 0;
@@ -861,6 +871,9 @@ button.fab {
       float: unset;
       font-size: 0.8em;
     }
+    .alert-dialog-button{
+      color: var(--color-primary-6);
+    }
   }
 
   .form-item {
@@ -1010,11 +1023,16 @@ button.fab {
 .toolbar .left .toolbar-button{
   padding: 0px;
 }
+.toolbar-button{
+  color: var(--color-primary-6);
+}
+.toolbar-button--outline{
+  border-color: var(--color-primary-6);
+}
 .add-more {
   .toolbar-button {
     float: right;
     margin-right: 0px;
-
     ons-icon {
       font-size: 0.8em;
       padding-top: 2px;
@@ -1417,8 +1435,7 @@ button.fab {
 
     .left {
       width: 78%;
-      margin-right: 2%;
-      color: var(--color-accent-2) !important;
+      margin-right: 2%;     
     }
 
     .right {
