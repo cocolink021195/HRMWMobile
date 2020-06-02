@@ -890,18 +890,15 @@ button.fab {
   .form-item {
     display: inline-block;
     width: 100%;
-
     .form-item-left {
       width: 35%;
       float: left;
       padding-top: 18px;
       text-align: left;
     }
-
     .form-item-right {
       width: 63%;
       float: right;
-
       .mat-form-field {
         width: 100%;
       }
@@ -1080,12 +1077,12 @@ button.fab {
 /*#region add-send-feedback*/
 .search-user {
   display: grid;
-  grid-template-columns: 80px auto 43px;
+  grid-template-columns: 80px auto 53px;
   height: 38px;
 
   span {
     display: grid;
-    padding-top: 6px;
+    padding-top: 4px;
   }
 
   mat-form-field {
@@ -1471,5 +1468,22 @@ button.fab {
 @include my-keyframes(loading-ghost) {
   100% {
     transform: translateX(100%);
+  }
+}
+/*content-view-background*/
+ons-page .content-full.content-view-background{
+  padding: 18% 9.05% 0 9.05%!important; 
+  #cart-background{
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    left: 0px;
+    width: 100%;    
+  }
+  .js-view-background{
+    position: unset;
+    top:unset;
+    left: unset;
+    bottom: unset;
   }
 }
