@@ -2,9 +2,12 @@
   <ons-toolbar>
     <div class="left">
       <ons-back-button></ons-back-button>
+      <a class="go-home" href="/" title="Trang chủ"></a>
     </div>
     <div class="center"> {{title}} </div>
-    <div class="right"></div>
+    <div class="right">
+      <div class="noti" style="background-image: url(/assets/images/heart.png);"></div>
+    </div>
   </ons-toolbar>
   <div class="content content-full content-full-toolbar">
     <div class="search-user">
@@ -13,7 +16,7 @@
         <mat-label>Họ và tên</mat-label>
         <mat-select></mat-select>
       </mat-form-field>
-      <button (click)="modalAddSendFeedback.show()"><ons-icon class="fsap fsap-search"></ons-icon></button>      
+      <!--<button (click)="modalAddSendFeedback.show()"><ons-icon class="fsap fsap-search"></ons-icon></button>      -->
     </div>    
     <div class="list-content list-content-cen">
       <div class="list-content-header">GIÁ TRỊ CỐT LÕI:</div>

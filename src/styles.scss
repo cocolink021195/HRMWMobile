@@ -49,7 +49,8 @@ $lstSide: ("":"", "t":"-top", "r":"-right", "b":"-bottom", "l":"-left");
 .t-ellipsis .row {
   overflow: hidden;
   white-space: nowrap;
-  text-overflow: ellipsis;
+  -o-text-overflow: ellipsis;
+     text-overflow: ellipsis;
 }
 
 @mixin my-text-align($name) {
@@ -94,6 +95,8 @@ $lstSide: ("":"", "t":"-top", "r":"-right", "b":"-bottom", "l":"-left");
 
 ons-checkbox {
   .checkbox--material__checkmark:before {
+    -webkit-transition: background-color 0.05s linear 0.01s, border-color 0.05s linear 0.01s;
+    -o-transition: background-color 0.05s linear 0.01s, border-color 0.05s linear 0.01s;
     transition: background-color 0.05s linear 0.01s, border-color 0.05s linear 0.01s;
   }
 
@@ -103,7 +106,11 @@ ons-checkbox {
   }
 
   :checked+.checkbox--material__checkmark:after {
+    -webkit-transition: -webkit-transform 0.1s ease 0.1s;
+    transition: -webkit-transform 0.1s ease 0.1s;
+    -o-transition: transform 0.1s ease 0.1s;
     transition: transform 0.1s ease 0.1s;
+    transition: transform 0.1s ease 0.1s, -webkit-transform 0.1s ease 0.1s;
   }
 }
 
@@ -112,6 +119,7 @@ ons-checkbox {
 }
 
 .grid {
+  display: -ms-grid;
   display: grid;
 }
 
@@ -125,36 +133,43 @@ ons-alert-dialog {
 
 ons-toolbar.toolbar {
   width: auto;
-  padding: 0 16px;
+  padding: 0 16px 0 0;
   background-image: url(/assets/images/logo.png);
   background-position: top 2px left 35px;
   background-color: var(--color-primary-6);
-  background-size: 100px 40px;
-
+  background-size: 100px 40px;  
   .center {
     width: calc(100% - 100px);
     @extend .t-ellipsis;
     color: var(--color-primary-0);
   }
-
   .left {
-    width: 150px;
-
+    width: 185px;
+    .toolbar-button, .back-button{ 
+      width: 45px;
+      display: block;
+      float: left;  
+      padding: 0px 0px 0px 16px;
+      border: none;
+    }
+    a{    
+      display: block;
+      float: left;
+      width: 85px;
+      height: 44px;
+    }
     ons-icon {
       float: left;
       color: var(--color-primary-0);
     }
-
     ons-back-button {
       width: 100%;
-
       svg {
         width: 10px;
         height: 16px;
       }
     }
   }
-
   .right {
     width: 50px;
     position: relative;
@@ -168,7 +183,7 @@ ons-toolbar.toolbar {
       background-size: 35px 35px;     
       background-position: top 5px right 0px;
       background-repeat: no-repeat;      
-      height: 45px;
+      height: 44px;
 
       span {
         color: #fff;
@@ -406,6 +421,7 @@ hrm-combobox-dialog .mat-form-field {
 }
 /*#endregion*/
 .home {
+  display: -ms-grid;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
   grid-gap: 45px 10px;
@@ -419,14 +435,17 @@ hrm-combobox-dialog .mat-form-field {
       line-height: 1;
       border-radius: 13px;
       background: var(--color-accent-1);
-      box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.3);
+      -webkit-box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.3);
+              box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.3);
     }
 
     &__icon ons-icon::before {
       position: absolute;
       font-size: 1.7rem;
       color: var(--color-primary-0);
-      transform: translate(-50%, 50%);
+      -webkit-transform: translate(-50%, 50%);
+          -ms-transform: translate(-50%, 50%);
+              transform: translate(-50%, 50%);
     }
 
     &__title {
@@ -483,12 +502,14 @@ hrm-combobox-dialog .mat-form-field {
   }
 
   .function-body {
+    display: -ms-grid;
     display: grid;   
     grid-gap: 15px;    
     grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));     
   }  
   @include respond-above(sm) {
     .function-body {
+      -ms-grid-columns: 1fr 15px 1fr 15px 1fr;
       grid-template-columns: 1fr 1fr 1fr;
     }
   }
@@ -497,12 +518,17 @@ hrm-combobox-dialog .mat-form-field {
     height: 95px;
     border-radius: 5px;
     padding: 10px;
+    display: -ms-grid;
     display: grid;
+    -ms-grid-rows: 30px auto;
     grid-template-rows: 30px auto;
-    box-shadow: 0px 3px 5px 1px rgba(0, 0, 0, 0.12);
+    -webkit-box-shadow: 0px 3px 5px 1px rgba(0, 0, 0, 0.12);
+            box-shadow: 0px 3px 5px 1px rgba(0, 0, 0, 0.12);
     background-color: #fff;
     .title {
+      display: -ms-grid;
       display: grid;
+      -ms-grid-columns: 35px auto;
       grid-template-columns: 35px auto;      
       .img{
         border-radius: 50%;   
@@ -570,13 +596,14 @@ hrm-combobox-dialog .mat-form-field {
     }
 
     .title {
-      -webkit-flex-basis: 100%;
-      flex-basis: 100%;
+      -ms-flex-preferred-size: 100%;
+          flex-basis: 100%;
       -webkit-align-self: flex-end;
-      align-self: flex-end;
+      -ms-flex-item-align: end;
+          align-self: flex-end;
       -webkit-box-ordinal-group: 1;
-      -webkit-order: 0;
-      order: 0;
+      -ms-flex-order: 0;
+          order: 0;
       line-height: 1.2em;
       font-size: 1.05em;
       max-height: 1.2em;
@@ -591,12 +618,13 @@ hrm-combobox-dialog .mat-form-field {
     .subtitle {
       opacity: 0.75;
       -webkit-box-ordinal-group: 2;
-      -webkit-order: 1;
-      order: 1;
-      -webkit-flex-basis: 100%;
-      flex-basis: 100%;
+      -ms-flex-order: 1;
+          order: 1;
+      -ms-flex-preferred-size: 100%;
+          flex-basis: 100%;
       -webkit-align-self: flex-start;
-      align-self: flex-start;
+      -ms-flex-item-align: start;
+          align-self: flex-start;
       opacity: 0.75;
       font-size: 0.98em;
       margin-top: 3px;
@@ -680,9 +708,14 @@ hrm-combobox-dialog .mat-form-field {
       position: absolute;
       width: 100%;
       height: 100%;
-      transform: translateX(-100%);
+      -webkit-transform: translateX(-100%);
+          -ms-transform: translateX(-100%);
+              transform: translateX(-100%);
+      background: -webkit-gradient(linear, left top, right top, from(transparent), color-stop(rgba(255, 255, 255, 0.5)), to(transparent));
+      background: -o-linear-gradient(left, transparent, rgba(255, 255, 255, 0.5), transparent);
       background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.5), transparent);
-      animation: loading-ghost 1s infinite;
+      -webkit-animation: loading-ghost 1s infinite;
+              animation: loading-ghost 1s infinite;
     }
 
     &.list-item .center {
@@ -744,7 +777,8 @@ button.fab {
     background-size: 15px;
     background-position: 20px center;
     background-color: #f9f9f9;
-    box-shadow: 0px 3px 8px 0px rgba(0, 0, 0, 0.12);
+    -webkit-box-shadow: 0px 3px 8px 0px rgba(0, 0, 0, 0.12);
+            box-shadow: 0px 3px 8px 0px rgba(0, 0, 0, 0.12);
   }
 
   &~.list-content {
@@ -766,7 +800,9 @@ button.fab {
   }
 
   &__content {
+    display: -ms-grid;
     display: grid;
+    -ms-grid-rows: 215px auto 60px 45px;
     grid-template-rows: 215px auto 60px 45px;
     background-color: var(--color-primary-6) !important;
 
@@ -815,7 +851,9 @@ button.fab {
         display: unset;
         .center {
           background-image: none;
-          justify-content: unset;
+          -webkit-box-pack: unset;
+              -ms-flex-pack: unset;
+                  justify-content: unset;
           place-content: unset;
           display: inline-block;
           width: 100%;
@@ -944,7 +982,8 @@ button.fab {
         padding: 0 20px 0 50px;
         background-position: 20px center;
         background-color: var(--color-bg);
-        box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.12);
+        -webkit-box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.12);
+                box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.12);
       }
     }
   }
@@ -970,6 +1009,7 @@ button.fab {
       }
 
       .center {
+        display: -ms-inline-grid;
         display: inline-grid;
         padding: 10px 5px;
 
@@ -993,10 +1033,16 @@ button.fab {
 
   .loading,
   .small-loading {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     text-align: center;
-    align-items: center;
-    justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
   }
 
   .loading {
@@ -1004,6 +1050,8 @@ button.fab {
   }
 
   .list-item__center {
+    width: -webkit-min-content;
+    width: -moz-min-content;
     width: min-content;
   }
 
@@ -1023,13 +1071,12 @@ button.fab {
 
 .content-home{
   background-color: #fff!important; 
+  background-image: -webkit-gradient(linear, left bottom, left top, from(#00B050) , to(#ffffff))!important; 
+  background-image: -o-linear-gradient(bottom, #00B050 , #ffffff)!important; 
   background-image: linear-gradient(to top, #00B050 , #ffffff)!important; 
 }
 .content, .toolbar-button, .textarea--transparent{
   font-size: 0.9rem;
-}
-.toolbar .left .toolbar-button{
-  padding: 0px;
 }
 .toolbar-button{
   color: var(--color-primary-6);
@@ -1076,23 +1123,29 @@ button.fab {
 
 /*#region add-send-feedback*/
 .search-user {
+  display: -ms-grid;
   display: grid;
-  grid-template-columns: 80px auto 53px;
+  -ms-grid-columns: 80px auto;
+  grid-template-columns: 80px auto;
   height: 38px;
 
   span {
+    display: -ms-grid;
     display: grid;
     padding-top: 4px;
   }
 
   mat-form-field {
+    display: -ms-grid;
     display: grid;
   }
 
   button {
+    display: -ms-grid;
     display: grid;
     color: #fff;
-    box-shadow: unset;
+    -webkit-box-shadow: unset;
+            box-shadow: unset;
     border: unset;
     text-align: center;
     height: 38px;
@@ -1293,11 +1346,11 @@ button.fab {
     }
   }
 }
-
 /*#endregion*/
 /*#region review-send-feedback*/
 .content.content-view {
   .search-user {
+    -ms-grid-columns: 80px auto;
     grid-template-columns: 80px auto;
   }
 
@@ -1457,17 +1510,23 @@ button.fab {
 
 @include my-keyframes(lds-dual-ring) {
   0% {
-    transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+        -ms-transform: rotate(0deg);
+            transform: rotate(0deg);
   }
 
   100% {
-    transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+        -ms-transform: rotate(360deg);
+            transform: rotate(360deg);
   }
 }
 
 @include my-keyframes(loading-ghost) {
   100% {
-    transform: translateX(100%);
+    -webkit-transform: translateX(100%);
+        -ms-transform: translateX(100%);
+            transform: translateX(100%);
   }
 }
 /*content-view-background*/
