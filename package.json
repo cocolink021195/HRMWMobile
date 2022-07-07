@@ -23,7 +23,7 @@
     "@angular/platform-browser-dynamic": "~9.0.0-rc.1",
     "@angular/router": "~9.0.0-rc.1",
     "jquery": "^3.5.1",
-    "moment": "^2.26.0",
+    "moment": "^2.29.4",
     "ngx-onsenui": "^7.0.0",
     "onsenui": "^2.10.10",
     "rxjs": "~6.5.3",
